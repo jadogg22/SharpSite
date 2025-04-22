@@ -1,0 +1,35 @@
+# === Dependencies ===
+/node_modules/
+
+# If you accidentally install with npm/yarn, ignore their lockfiles
+package-lock.json
+yarn.lock
+
+# Keep only your pnpm lockfile in source control
+!pnpm-lock.yaml
+
+# === Next.js build outputs ===
+/.next/
+/out/
+/build/
+
+# === Environment files ===
+# local overrides (secrets!)—never commit these
+.env.local
+.env.*.local
+
+# If you need example vars, keep a template
+!/.env.example
+
+# === Miscellaneous ===
+.DS_Store
+npm-debug.log*
+pnpm-debug.log*
+yarn-error.log*
+.vscode/
+.idea/
+.cache/
+
+# === TypeScript ===
+# (you usually commit these, but if you ever generate extra tsbuild output…)
+*.tsbuildinfo
