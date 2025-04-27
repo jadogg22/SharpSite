@@ -38,7 +38,7 @@ export default function Home() {
               <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary">
                 About
               </Link>
-              <Link href="/dashboard" className="text-sm font-medium transition-colors hover:text-primary">
+              <Link href="/logistics" className="text-sm font-medium transition-colors hover:text-primary">
                 Logistics
               </Link>
               <Link href="/employment" className="text-sm font-medium transition-colors hover:text-primary">
