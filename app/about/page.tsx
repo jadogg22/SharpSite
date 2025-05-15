@@ -3,9 +3,10 @@ import Link from "next/link"
 import { MapPin, Phone, Mail, Send } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+
+import  TimelineSection  from "@/components/TimelineSection";
 
 export default function AboutPage() {
   return (
@@ -79,14 +80,15 @@ export default function AboutPage() {
       <section className="relative">
         <div className="relative h-[300px] md:h-[400px] w-full">
           <Image
-            src="/images/about/hero.webp"
+            src="/images/trucks/truckStop.avif"
             alt="Sharp Transportation Fleet"
             fill
-            className="object-cover"
+            className="object-cover object-top"
             priority
           />
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white text-center">ABOUT</h1>
+          
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">ABOUT</h1>
           </div>
         </div>
       </section>
@@ -118,10 +120,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/images/trucks/hero-truck.webp"
+                src="/images/drivers/ZanSharpSmall.png"
                 alt="Zan Sharp - President/Owner"
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             </div>
             <div>
@@ -170,69 +172,10 @@ export default function AboutPage() {
         </div>
       </section>
 
+
+
       {/* Timeline Section */}
-      <section className="container py-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Our Journey</h2>
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/20"></div>
-
-          {/* Timeline items */}
-          <div className="grid grid-cols-1 gap-12">
-            <div className="relative flex items-center justify-end md:justify-start md:even:justify-end">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary"></div>
-              <div className="w-5/12 md:w-5/12"></div>
-              <Card className="w-full md:w-5/12 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">1970</h3>
-                  <p>John T. Sharp founds Sharp Transportation in Wellsville, Utah.</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative flex items-center justify-start md:justify-end">
-              <Card className="w-full md:w-5/12 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">1990</h3>
-                  <p>
-                    Zan Sharp incorporates Sharp Transportation after acquiring the company from his father in January.
-                  </p>
-                </CardContent>
-              </Card>
-              <div className="w-5/12 md:w-5/12"></div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary"></div>
-            </div>
-
-            <div className="relative flex items-center justify-end md:justify-start md:even:justify-end">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary"></div>
-              <div className="w-5/12 md:w-5/12"></div>
-              <Card className="w-full md:w-5/12 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">2000s</h3>
-                  <p>
-                    Expansion of operations with new offices in Salt Lake, Twin Falls, and Seattle, while maintaining
-                    headquarters in Wellsville.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative flex items-center justify-start md:justify-end">
-              <Card className="w-full md:w-5/12 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">Today</h3>
-                  <p>
-                    Sharp Transportation now includes 170 employees, 200 trucks, 500 trailers, and 25 outside carriers,
-                    serving customers nationwide.
-                  </p>
-                </CardContent>
-              </Card>
-              <div className="w-5/12 md:w-5/12"></div>
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TimelineSection />
 
       {/* Contact Section */}
       <section className="bg-gray-50 py-16">
