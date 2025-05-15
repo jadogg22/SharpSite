@@ -8,10 +8,6 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "engines":{
-    "pnpm": "^8.0.0",
-  },
-  "packageManager": "pnpm@8.6.0",
   "dependencies": {
     "next": "15.2.4",
     "@hookform/resolvers": "^3.10.0",
