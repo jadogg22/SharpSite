@@ -11,7 +11,6 @@ With the site looking good it still needs some work before its ready to be publi
 
 [] change title page image
 [] Drive With us link
-
 [] hear from Our drivers.
     [] - sarah
     [] - robert
