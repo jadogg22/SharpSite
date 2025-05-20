@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 import  TimelineSection  from "@/components/TimelineSection";
+import TruckTimeline from "@/components/TruckTimeline"
 
 export default function AboutPage() {
   return (
@@ -175,7 +176,7 @@ export default function AboutPage() {
 
 
       {/* Timeline Section */}
-      <TimelineSection />
+      <TruckTimeline />
 
       {/* Contact Section */}
       <section className="bg-gray-50 py-16">
