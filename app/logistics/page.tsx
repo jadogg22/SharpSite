@@ -269,10 +269,6 @@ export default function LogisticsPage() {
                         <span className="font-medium">Cami Hansen</span>
                         <span className="text-muted-foreground">Ext. 305</span>
                       </li>
-                      <li className="flex justify-between items-center border-b pb-2">
-                        <span className="font-medium">Sam Swenson</span>
-                        <span className="text-muted-foreground">Ext. 310</span>
-                      </li>
                     </ul>
                   </CardContent>
                 </Card>
