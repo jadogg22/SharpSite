@@ -11,14 +11,16 @@ export const metadata = {
     generator: 'v0.dev'
 }
 
+
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className={inter.className}>
+      <body>
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
         </ThemeProvider>
@@ -26,6 +28,7 @@ export default function RootLayout({
     </html>
   )
 }
+
 
 
 
