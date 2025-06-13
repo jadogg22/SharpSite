@@ -243,7 +243,7 @@ export default function Directory() {
         <div className="max-w-4xl mx-auto">
           <Tabs defaultValue={contacts[0].value} className="w-full">
             {/* Tab headers */}
-            <TabsList className="flex flex-wrap gap-2 overflow-x-auto mb-8">
+            <TabsList className="flex flex-wrap gap-2 justify-center mb-8">
               {contacts.map(({ value, label }) => (
                 <TabsTrigger key={value} value={value} className="min-w-[140px]">
                   {label}
