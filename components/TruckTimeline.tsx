@@ -31,80 +31,54 @@ export default function TruckTimeline() {
     setCurrentIndex(0);
   }, []);
   
-  // Handle manual navigation
+
+useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleMouseEnter = () => {
+      document.body.style.overflow = 'hidden';
+    };
+    const handleMouseLeave = () => {
+      document.body.style.overflow = 'auto';
+    };
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+    return () => {
+      document.body.style.overflow = 'auto';
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
   const handlePrev = () => {
     setCurrentIndex(prev => Math.max(0, prev - 1));
   };
-  
+
   const handleNext = () => {
     setCurrentIndex(prev => Math.min(timelineData.length - 1, prev + 1));
   };
 
-
-// on mouse hover, disable scroll
-useEffect(() => {
-  const container = containerRef.current;
-
-
-  const preventDefaultScroll = (e: WheelEvent) => {
+  const handleWheel = (e: any) => {
     e.preventDefault();
-  };
-
-  const handleMouseEnter = () => {
-    document.body.style.overflow = 'hidden';
-    container?.addEventListener("wheel", preventDefaultScroll, { passive: false });
-  };
-
-  const handleMouseLeave = () => {
-    document.body.style.overflow = 'auto';
-    container?.removeEventListener("wheel", preventDefaultScroll);
-  };
-
-  container?.addEventListener("mouseenter", handleMouseEnter);
-  container?.addEventListener("mouseleave", handleMouseLeave);
-
-  return () => {
-    document.body.style.overflow = 'auto';
-    container?.removeEventListener("mouseenter", handleMouseEnter);
-    container?.removeEventListener("mouseleave", handleMouseLeave);
-    container?.removeEventListener("wheel", preventDefaultScroll);
-  };
-}, []);
+    if (isInteracting) return;
+    const SCROLL_THRESHOLD = 10;
+    if (e.deltaY > SCROLL_THRESHOLD) {
+      handleNext();
+      setIsInteracting(true);
+      setTimeout(() => setIsInteracting(false), 300);
+    } else if (e.deltaY < -SCROLL_THRESHOLD) {
+      handlePrev();
+      setIsInteracting(true);
+      setTimeout(() => setIsInteracting(false), 300);
+    }
+  };  
   
-// Handle mouse wheel navigation
-const handleWheel = (e: React.WheelEvent) => {
-  e.preventDefault();
-
-  if (isInteracting) return;
-
-    // sensitifity for scroll, 30 was too high. trying 10
-  const SCROLL_THRESHOLD = 10;
-
-  if (e.deltaY > SCROLL_THRESHOLD) {
-    handleNext();
-    setIsInteracting(true);
-    setTimeout(() => setIsInteracting(false), 300);
-  } else if (e.deltaY < -SCROLL_THRESHOLD) {
-    handlePrev();
-    setIsInteracting(true);
-    setTimeout(() => setIsInteracting(false), 300);
-  }
-};
-  
-  // Calculate truck positions based on current index
-  const getTruckPosition = (index: number) => {
+   const getTruckPosition = (index: number) => {
     const diff = index - currentIndex;
-    
-    // Current truck is centered (50%)
-    if (diff === 0) return 50;
-    
-    // Previous trucks to the left
-    if (diff < 0) return 50 + (diff * 100); // Off to the left
-    
-    // Future trucks to the right
-    return 50 + (diff * 100); // Off to the right
+    return 50 + (diff * 100);
   };
-  
+
   return (
     <div className="flex justify-center my-8">
       <div 
@@ -197,10 +171,6 @@ const handleWheel = (e: React.WheelEvent) => {
                   
                   {/* Trailer with timeline content */}
                   <div className="absolute left-28 -top-2 w-72 h-28 bg-gradient-to-r from-gray-200 to-gray-300 rounded-sm border-2 border-gray-400">
-                    {/* Year badge */}
-                    <div className="absolute -top-6 left-2 px-3 py-1 bg-yellow-500 text-black font-bold rounded-lg">
-                      {item.year}
-                    </div>
                     
                     {/* Timeline text */}
                     <div className="p-3 text-sm leading-tight text-gray-800">
