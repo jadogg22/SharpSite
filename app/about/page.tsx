@@ -1,26 +1,19 @@
 import Image from "next/image"
-import { MapPin, Phone, Send } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-
 import TruckTimeline from "@/components/TruckTimeline"
 import { MyFooter } from "@/components/MyFooter"
 import { MyHeader } from "@/components/MyHeader"
-import { ContactSection } from "@/components/ContactUs"
+import ContactUs from "@/components/ContactUs"
+import { Award, Users, Heart, Star } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-gray-50">
       {/* Navigation */}
       <MyHeader />
 
-      {/* Main Content */}
-
       {/* Hero Section */}
       <section className="relative">
-        <div className="relative h-[300px] md:h-[400px] w-full">
+        <div className="relative h-[320px] md:h-[440px] w-full">
           <Image
             src="/images/trucks/truckStop.avif"
             alt="Sharp Transportation Fleet"
@@ -28,9 +21,18 @@ export default function AboutPage() {
             className="object-cover object-top"
             priority
           />
-          
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white text-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">ABOUT</h1>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent flex flex-col items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] tracking-tight">
+              About Sharp Transportation
+            </h1>
+            <div className="flex gap-3 mt-4">
+              <span className="bg-primary/80 text-white text-xs font-semibold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                Family Owned
+              </span>
+              <span className="bg-white/80 text-primary text-xs font-semibold px-4 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                Est. 1970
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -38,8 +40,14 @@ export default function AboutPage() {
       {/* Company History Section */}
       <section className="container py-16">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">Our History</h2>
-          <div className="space-y-6 text-lg">
+          <h2 className="text-3xl font-bold mb-2 text-primary text-center flex items-center justify-center gap-2">
+            <Award className="w-8 h-8 text-yellow-400" />
+            Our History
+          </h2>
+          <div className="flex justify-center mb-8">
+            <span className="inline-block w-16 h-1 bg-primary/30 rounded-full" />
+          </div>
+          <div className="bg-white/70 shadow-lg rounded-xl p-8 space-y-6 text-lg">
             <p>
               In 1970 John T. Sharp founded Sharp Transportation of Wellsville, Utah which is located 75 miles north of
               Salt Lake City in beautiful Cache Valley. Zan Sharp, John's son, incorporated Sharp Transportation in
@@ -57,45 +65,45 @@ export default function AboutPage() {
       </section>
 
       {/* President/Owner Section */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gradient-to-r from-primary/10 to-white py-16">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] rounded-lg overflow-hidden">
-              <Image
-                src="/images/drivers/ZanSharpSmall.png"
-                alt="Zan Sharp - President/Owner"
-                fill
-                className="object-contain"
-              />
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-2xl border-8 border-primary/20">
+                <Image
+                  src="/images/drivers/ZanSharpSmall.png"
+                  alt="Zan Sharp - President/Owner"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             <div>
               <div className="mb-6">
-                <h2 className="text-3xl font-bold mb-2">PRESIDENT/OWNER</h2>
-                <h3 className="text-xl font-medium text-primary">Zan Sharp</h3>
+                <h2 className="text-2xl font-bold mb-1 text-primary">PRESIDENT / OWNER</h2>
+                <h3 className="text-2xl font-bold text-gray-800">Zan Sharp</h3>
                 <p className="text-muted-foreground">EXT. 106</p>
               </div>
-              <div className="space-y-4">
-                <p>
+              <div className="space-y-4 text-lg">
+                <p className="text-gray-700">
                   To say Zan Sharp knows a lot about the trucking business is like saying water knows a lot about being
                   wet. He immersed himself in it right out of high school, driving trucks for his father's company at
                   age 18. Three years later, Zan started dispatching. Then, in 1990, he and his wife decided to take
                   over Sharp. At the time, the company was small, but Zan felt that if he worked hard, he could grow the
-                  business. His can-do spirit is reflected in the company philosophy, "We'll do it." Those three simple
-                  words have been the driving force that has built Sharp Transportation's reputation as one of the most
-                  flexible trucking companies in the United States.
+                  business. His can-do spirit is reflected in the company philosophy, <span className="italic font-semibold text-primary">"We'll do it."</span>
                 </p>
                 <p>
                   Zan often finds himself reflecting on the success of the company, especially since he's been here
-                  since the beginning. "Sharp Transportation has grown to become what my dad always wanted. He dreamed
+                  since the beginning. <span className="italic">"Sharp Transportation has grown to become what my dad always wanted. He dreamed
                   of a trucking company run by the family, where we would work together during the week and play
-                  together during weekends." His dream has come true, as his wife and all three children have worked for
+                  together during weekends."</span> His dream has come true, as his wife and all three children have worked for
                   the company.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 max-w-4xl mx-auto space-y-6">
+          <div className="mt-12 max-w-4xl mx-auto space-y-6 text-lg bg-white/70 rounded-xl shadow-lg p-8">
             <p>
               Two of Zan's biggest priorities are his clients and his drivers. His clients know this because of the
               on-time deliveries. His CDL drivers know this because of how Sharp Trucking is run. Zan works hard with
@@ -114,92 +122,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-
-      {/* Timeline Section */}
-      <TruckTimeline />
-
-      {/* Contact Section */}
-      <ContactSection />
-
-      {/* Footer */}
-      <section className="bg-gray-50 py-16">
-        <div className="container">
-          <h2 className="text-3xl font-bold mb-12 text-center">CONTACT US</h2>
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <div className="mb-8">
-                <div className="flex items-start mb-4">
-                  <MapPin className="mr-2 h-5 w-5 text-primary shrink-0 mt-1" />
-                  <p className="text-lg">390 N 900 E Wellsville, UT 84339</p>
-                </div>
-                <div className="flex items-center mb-4">
-                  <Phone className="mr-2 h-5 w-5 text-primary shrink-0" />
-                  <p className="text-lg">Tel: 435-245-6053</p>
-                </div>
-              </div>
-
-              <div className="aspect-w-16 aspect-h-9 h-[300px] relative rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4661.512279566052!2d-111.90958681743523!3d41.6458941214591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87537f829d24a6d1%3A0xef993dd5c684fd16!2sSharp%20Transportation!5e0!3m2!1sen!2sus!4v1744917958098!5m2!1sen!2sus"
-                  width="600"
-                  height="450"
-                  style={{ border: 0 }}
-                  allowFullScreen={false}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 w-full h-full"
-                ></iframe>
-              </div>
-            </div>
-
-            <div>
-              <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="firstName" className="text-sm font-medium">
-                      First Name
-                    </label>
-                    <Input id="firstName" placeholder="First Name" />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="lastName" className="text-sm font-medium">
-                      Last Name
-                    </label>
-                    <Input id="lastName" placeholder="Last Name" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    Email
-                  </label>
-                  <Input id="email" type="email" placeholder="Email" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="subject" className="text-sm font-medium">
-                    Subject
-                  </label>
-                  <Input id="subject" placeholder="Subject" />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">
-                    Message
-                  </label>
-                  <Textarea id="message" placeholder="Type your message here..." rows={5} />
-                </div>
-                <Button type="submit" className="w-full">
-                  Submit
-                  <Send className="ml-2 h-4 w-4" />
-                </Button>
-              </form>
-            </div>
-          </div>
+      {/* Timeline Section (keeps your custom component) */}
+      <section className="container py-20">
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-3xl font-bold text-primary flex items-center gap-2 mb-1">
+            <Users className="w-8 h-8 text-primary" />
+            Company Timeline
+          </h2>
+          <span className="inline-block w-16 h-1 bg-primary/30 rounded-full" />
         </div>
+        <TruckTimeline />
+      </section>
+
+      {/* Contact Section (with light accent bg) */}
+      <section className="bg-primary/5 py-20">
+        <ContactUs />
       </section>
 
       {/* Footer */}
       <MyFooter />
-
     </div>
   )
 }
