@@ -23,7 +23,9 @@ export default function TruckTimeline() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   
   // I'll have to test this height but for my dev env it looks really good
-  const componentHeight = 350;   
+  const componentHeight = 350;
+
+
   useEffect(() => {
     // Initial setup
     setCurrentIndex(0);
@@ -42,6 +44,7 @@ export default function TruckTimeline() {
 // on mouse hover, disable scroll
 useEffect(() => {
   const container = containerRef.current;
+
 
   const preventDefaultScroll = (e: WheelEvent) => {
     e.preventDefault();
