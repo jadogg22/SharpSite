@@ -38,6 +38,7 @@ link our "about us" youtube video.
 [] - links
 
 ### Employment
+[X]
 
 ### Driver Resources
 
@@ -46,3 +47,10 @@ link our "about us" youtube video.
 [] Tracking, we need to set up somekind of endpoint where we can make a request to spirion before we display a map of the data.
     [] - some kind of authentication.
 [] - STR Radio
+
+### Directory
+
+[X] - hero image
+[X] - links
+[X] - directory
+

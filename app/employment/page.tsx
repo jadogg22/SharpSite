@@ -9,9 +9,9 @@ import {MyFooter} from "@/components/MyFooter";
 // Swap these with your real photos!
 const perkPhotos = [
   { src: "/images/trucks/road.jpg", alt: "Truck on highway" },
-  { src: "/images/drivers/team.jpg", alt: "Sharp drivers together" },
-  { src: "/images/yard.jpg", alt: "Yard and warehouse" },
-  { src: "/images/drivers/happy.jpg", alt: "Happy driver in cab" },
+  { src: "/images/drivers/lies.avif", alt: "Sharp drivers together" },
+  { src: "/images/trucks/wellsvile.avif", alt: "Yard and warehouse" },
+  { src: "/images/drivers/generic_drivers.avif", alt: "Happy driver in cab" },
 ];
 
 export default function Employment() {
@@ -22,13 +22,13 @@ export default function Employment() {
       {/* Hero: Real fleet banner */}
       <section className="relative h-[350px] md:h-[440px] w-full">
         <Image
-          src="/images/trucks/fleet-banner.jpg" // <<--- YOUR FLEET IMAGE
+          src="/images/trucks/bearlake.avif"
           alt="Sharp Transportation Trucks"
           fill
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-primary/30 flex flex-col justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-primary/5 flex flex-col justify-center">
           <div className="container max-w-2xl px-4">
             <h1 className="text-white text-3xl md:text-5xl font-extrabold mb-3 drop-shadow">
               Drive With The Sharp Team
@@ -53,7 +53,7 @@ export default function Employment() {
       <section className="container py-12 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2 flex-shrink-0">
           <Image
-            src="/images/drivers/rob-wilson.jpg"
+            src="/images/drivers/rob wilson.avif"
             alt="Rob Wilson, Sharp driver"
             width={500}
             height={400}
@@ -106,53 +106,62 @@ export default function Employment() {
 
       {/* Steps/How To Join + Requirements */}
       <section className="container py-12">
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Steps timeline */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">How to Join Sharp</h3>
-            <ol className="relative border-l-2 border-primary/40 pl-6 space-y-8">
-              {[
-                ["Apply Online", "Complete our simple online application in just minutes."],
-                ["Quick Review", "We review your app and reach out within 24 hours."],
-                ["Interview", "Chat with our team and see where you fit best."],
-                ["Start Driving", "Complete orientation and hit the road."],
-              ].map(([title, desc], i) => (
-                <li key={i}>
-                  <div className="absolute -left-4 top-1.5 w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center font-bold">{i+1}</div>
-                  <div className="pl-6">
-                    <h4 className="font-semibold">{title}</h4>
-                    <p className="text-gray-600 text-sm">{desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-          {/* Requirements with a photo */}
-          <div>
-            <h3 className="text-xl font-semibold mb-6">Minimum Requirements</h3>
-            <Image
-              src="/images/trucks/solo-driver.jpg"
-              alt="Sharp driver in truck"
-              width={420}
-              height={160}
-              className="rounded-md object-cover mb-4 shadow border"
-            />
-            <ul className="space-y-3 text-gray-700">
-              {[
-                "22 years old",
-                "1 year experience (or very close)",
-                "No serious traffic violations in last 3 years",
-                "No DWI/DUI in past 10 years",
-                "Owner-ops: late model equipment (2013+)",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center">
-                  <CheckCircle className="text-green-600 mr-2" /> {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+  <div className="grid md:grid-cols-2 gap-12 items-start">
+    {/* Steps timeline + CTA */}
+    <div>
+      <h3 className="text-2xl font-bold mb-6">How to Join Sharp</h3>
+      <ol className="relative border-l-2 border-primary/40 pl-6 space-y-8">
+        {[
+          ["Apply Online", "Complete our simple online application in just minutes."],
+          ["Quick Review", "We review your app and reach out within 24 hours."],
+          ["Interview", "Chat with our team and see where you fit best."],
+          ["Start Driving", "Complete orientation and hit the road."],
+        ].map(([title, desc], i) => (
+          <li key={i}>
+            <div className="absolute -left-4 top-1.5 w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+              {i + 1}
+            </div>
+            <div className="pl-6">
+              <h4 className="font-semibold text-lg">{title}</h4>
+              <p className="text-gray-600 text-sm">{desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <button className="mt-10 px-6 py-3 bg-black text-white rounded-md shadow hover:bg-gray-800 transition">
+        Apply Now
+      </button>
+    </div>
+
+    {/* Requirements with a photo */}
+    <div>
+      <h3 className="text-2xl font-bold mb-6">Minimum Requirements</h3>
+      <div className="rounded-md overflow-hidden mb-4 shadow-lg border">
+        <Image
+          src="/images/drivers/generic_driver.avif"
+          alt="Sharp driver in truck"
+          width={360}
+          height={200}
+          className="object-cover w-full h-48"
+        />
+      </div>
+      <ul className="space-y-3 text-gray-800">
+        {[
+          "22 years old",
+          "1 year experience (or very close)",
+          "No serious traffic violations in last 3 years",
+          "No DWI/DUI in past 10 years",
+          "Owner-ops: late model equipment (2013+)",
+        ].map((item, i) => (
+          <li key={i} className="flex items-center text-sm">
+            <CheckCircle className="text-green-600 mr-2 w-5 h-5" /> {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
 
       {/* Non-CDL / Office */}
       <section className="bg-primary/5 py-12">

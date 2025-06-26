@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react';
 import { MyHeader } from '@/components/MyHeader';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Phone, MapPin } from "lucide-react";
 import { Mail } from "lucide-react";
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 
 type ContactPerson = {
   role?: string;
@@ -30,7 +34,7 @@ const contacts: ContactOffice[] = [
     ],
   },
   {
-    value: "recruitment",
+    value: "Recruitment",
     label: "Recruitment",
     contacts: [
       {
@@ -224,10 +228,30 @@ const contacts: ContactOffice[] = [
 ];
 
 export default function Directory() {
+  const searchParams = useSearchParams();
+  const defaultTab = searchParams.get("tab") || "Recruitment";
+
   return (
   <div className="flex min-h-screen flex-col">
   <MyHeader />
+  
   <main className="flex-1 container mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section className="relative">
+        <div className="relative h-[300px] md:h-[400px] w-full">
+          <Image
+            src="/images/trucks/hero4.avif"
+            alt="Sharp Transportation Logistics"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-center">Directory</h1>
+          </div>
+        </div>
+      </section>
+
 <section className="bg-gray-50 py-16">
       <div className="container">
         <div className="text-center mb-12">
@@ -241,7 +265,7 @@ export default function Directory() {
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue={contacts[0].value} className="w-full">
+          <Tabs defaultValue={defaultTab} className="w-full">
             {/* Tab headers */}
             <TabsList className="flex flex-wrap gap-2 justify-center mb-8">
               {contacts.map(({ value, label }) => (

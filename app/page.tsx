@@ -39,9 +39,9 @@ export default function Home() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex flex-col justify-center p-8">
+                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex flex-col justify-center p-8">
                   <div className="max-w-md text-white">
-                    <div className="mb-4 inline-block rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">
+                    <div className="mb-4 inline-block rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-primary">
                       Now Hiring Drivers
                     </div>
                     <h1 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -310,13 +310,14 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <p className="font-medium">Sarah Williams</p>
+                    <p className="font-medium">Nate</p>
                     <p className="text-sm text-muted-foreground">Regional Driver • 4 Years with Sharp</p>
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  "The respect I receive at Sharp is unmatched. From dispatch to management, everyone treats drivers as
-                  the professionals we are. The pay and benefits are excellent too."
+                  "My working relationship with the office personnel at Sharp has been stellar. My routes have been tight and efficient. I have all the work I can handle. Despite all the challenges this year, it was the most productive year for me. I could not be more grateful for the support!
+
+                  Additionally, I must mention the shop support as well! That crew has my thanks and gratitude for keeping me on the road with no interruptions to my loads and I consider myself very lucky in that regard!"
                 </p>
               </div>
             </CardContent>
@@ -336,13 +337,12 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <p className="font-medium">Robert Garcia</p>
+                    <p className="font-medium">Chris</p>
                     <p className="text-sm text-muted-foreground">Team Driver • 3 Years with Sharp</p>
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  "My partner and I joined Sharp after trying several other companies. The difference is night and day.
-                  Consistent miles, great equipment, and a support team that actually answers when you call."
+                  "Sharp Transportation is a great company to work for. Dispatchers, mechanics are awesome, and the drive managers are on top of it. I feel like an asset here. I’ve worked at a few trucking companies, and this is by far the best. Not to mention the equipment is well taken care of."
                 </p>
               </div>
             </CardContent>
@@ -360,9 +360,12 @@ export default function Home() {
                 If you're tired of being a number, come work with folks who know your name and answer the damn phone.
               </p>
             <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+              <Link href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647" passHref>
               <Button size="lg" variant="secondary">
                 Apply Now
               </Button>
+              </Link >
+              <Link href="/directory?tab=Recruitment" passHref>
               <Button
                 size="lg"
                 variant="outline"
@@ -370,6 +373,7 @@ export default function Home() {
               >
                 Contact Recruiting
               </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -439,7 +443,7 @@ export default function Home() {
                 </li>
                 <li>
                   <a href="#" className="hover:text-white">
-                    Driver Portal
+                    Driver Portal 
                   </a>
                 </li>
                 <li>

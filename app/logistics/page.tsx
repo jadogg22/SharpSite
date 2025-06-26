@@ -24,7 +24,7 @@ export default function LogisticsPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white text-center">LOGISTICS SERVICES</h1>
           </div>
         </div>

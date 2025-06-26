@@ -21,7 +21,7 @@ export default function AboutPage() {
             className="object-cover object-top"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent flex flex-col items-center justify-center">
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-transparent flex flex-col items-center justify-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-white text-center drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] tracking-tight">
               About Sharp Transportation
             </h1>
@@ -69,7 +69,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="relative flex items-center justify-center">
-              <div className="relative w-64 h-64 rounded-full overflow-hidden shadow-2xl border-8 border-primary/20">
+              <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl border-8 border-primary/20">
                 <Image
                   src="/images/drivers/ZanSharpSmall.png"
                   alt="Zan Sharp - President/Owner"
