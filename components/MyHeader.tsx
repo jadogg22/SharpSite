@@ -41,11 +41,13 @@ export const MyHeader = () => (
           </div>
           <div className="flex items-center gap-4">
             <div className="hidden md:flex">
-              <Button variant="outline" size="sm" className="mr-2">
-                <Search className="mr-2 h-4 w-4" />
-                Track Shipment
+              <Button variant="outline" size="sm" className="mr-2" asChild>
+                <Link href="/track-shipment">
+                  <Search className="mr-2 h-4 w-4" />
+                  Track Shipment
+                </Link>
               </Button>
-              <Button>Contact Us</Button>
+              <Button asChild><Link href="/contact">Contact Us</Link></Button>
             </div>
             <button className="flex items-center justify-center rounded-md p-2.5 text-sm font-medium md:hidden">
               <span className="sr-only">Open menu</span>

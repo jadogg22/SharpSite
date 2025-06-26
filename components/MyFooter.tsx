@@ -1,25 +1,28 @@
 import Image from 'next/image';
 import { MapPin, Phone } from 'lucide-react';
 import React from 'react';
+import Link from 'next/link';
 
 export const MyFooter = () => (
 
       <footer className="bg-gray-900 text-gray-300">
         <div className="container py-12">
-          <div className="grid gap-8 md:grid-cols-4">
+          <div className="grid gap-8 md:grid-cols-5">
             <div>
-              <Image
-                src="/images/logo-white.webp"
-                alt="Sharp Transportation Logo"
-                width={150}
-                height={50}
-                className="h-10 w-auto mb-4"
-              />
+              <div className="bg-white rounded-lg inline-block p-2">
+                <Image
+                  src="/images/logo.webp"
+                  alt="Sharp Transportation Logo"
+                  width={150}
+                  height={50}
+                  className="h-10 w-auto"
+                />
+              </div>
               <p className="mt-4 text-sm">
                 Providing reliable transportation services across North America for over 35 years.
               </p>
               <div className="mt-6 flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white">
+                <a href="https://www.facebook.com/sharptransportation" className="text-gray-400 hover:text-white">
                   <span className="sr-only">Facebook</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
@@ -29,13 +32,13 @@ export const MyFooter = () => (
                     />
                   </svg>
                 </a>
-                <a href="https://www.facebook.com/sharptransportation" className="text-gray-400 hover:text-white">
+                <a href="https://x.com/sharptruck" className="text-gray-400 hover:text-white">
                   <span className="sr-only">Twitter</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                   </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white">
+                <a href="https://www.linkedin.com/company/sharp-transportation-inc./" className="text-gray-400 hover:text-white">
                   <span className="sr-only">LinkedIn</span>
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path
@@ -51,29 +54,24 @@ export const MyFooter = () => (
               <h3 className="text-lg font-medium text-white mb-4">For Drivers</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <Link href="/employment" className="hover:text-white transition-colors">
                     Apply Now
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Driver Benefits
-                  </a>
+                  <Link href="/driver-resources" className="hover:text-white transition-colors">
+                    Driver Resources
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Equipment
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="https://intelliapp.driverapponline.com/c/sharptruck?r=website" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                     Driver Portal
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <Link href="/str-radio" className="hover:text-white transition-colors">
                     STR Radio
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -81,29 +79,54 @@ export const MyFooter = () => (
               <h3 className="text-lg font-medium text-white mb-4">For Shippers</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="https://sharptruck.mcleodsoftware.com/customer/login.aspx" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                     Track Shipment
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <Link href="/services" className="hover:text-white transition-colors">
                     Request a Quote
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <Link href="/services" className="hover:text-white transition-colors">
                     Services
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Coverage Map
-                  </a>
+                  <Link href="/directory" className="hover:text-white transition-colors">
+                    Directory
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
-                    Contact Sales
-                  </a>
+                  <Link href="/about" className="hover:text-white transition-colors">
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-medium text-white mb-4">Company</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link href="/contact" className="hover:text-white transition-colors">
+                    Contact Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/blog" className="hover:text-white transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/careers" className="hover:text-white transition-colors">
+                    Careers
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/faq" className="hover:text-white transition-colors">
+                    FAQ
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -127,15 +150,15 @@ export const MyFooter = () => (
                 © {new Date().getFullYear()} Sharp Transportation. All rights reserved.
               </p>
               <div className="flex space-x-6 text-sm">
-                <a href="#" className="text-gray-400 hover:text-white">
+                <Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
+                </Link>
+                <Link href="/terms-of-service" className="text-gray-400 hover:text-white transition-colors">
                   Terms of Service
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white">
+                </Link>
+                <Link href="/cookie-policy" className="text-gray-400 hover:text-white transition-colors">
                   Cookie Policy
-                </a>
+                </Link>
               </div>
             </div>
           </div>
