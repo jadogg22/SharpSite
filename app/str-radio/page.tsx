@@ -6,10 +6,13 @@ export default function RadioPage() {
   return (
   <div className="flex min-h-screen flex-col">
   <MyHeader />
-  <main className="flex-1 container mx-auto px-4 py-8">
-    <h1 className="text-3xl font-bold mb-6">Radio Page</h1>
-    <p>This is the radio page content.</p>
-    {/* Add your radio player or content here */}
+  <main className="flex-1 flex flex-col">
+    <iframe
+      src="https://embed.radio.co/player/30a1e6b.html?popout"
+      className="w-full flex-1"
+      style={{ border: 0 }}
+      allowFullScreen
+    ></iframe>
   </main>
   </div>
   );

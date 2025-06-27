@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { MyHeader } from '@/components/MyHeader';
+import { MyFooter } from '@/components/MyFooter';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Phone, MapPin } from "lucide-react";
@@ -235,7 +236,6 @@ export default function Directory() {
   <div className="flex min-h-screen flex-col">
   <MyHeader />
   
-  <main className="flex-1 container mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="relative">
         <div className="relative h-[300px] md:h-[400px] w-full">
@@ -251,6 +251,7 @@ export default function Directory() {
           </div>
         </div>
       </section>
+  <main className="flex-1 container mx-auto px-4 py-8">
 
 <section className="bg-gray-50 py-16">
       <div className="container">
@@ -332,6 +333,7 @@ export default function Directory() {
       </div>
     </section>
   </main>
+  <MyFooter />
   </div>
   );
 };

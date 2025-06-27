@@ -34,7 +34,7 @@ export default function Home() {
             <div className="md:col-span-2">
               <div className="relative h-[400px] rounded-lg overflow-hidden">
                 <Image
-                  src="/images/drivers/recruitment-hero.webp"
+                  src="/images/trucks/hero-truck.webp"
                   alt="Join Our Team"
                   fill
                   className="object-cover"
@@ -58,6 +58,7 @@ export default function Home() {
                         Apply Now
                       </Button>
                       </a>
+                      <Link href="/employment" passHref>
                       <Button
                         size="lg"
                         variant="outline"
@@ -65,6 +66,7 @@ export default function Home() {
                       >
                         Driver Benefits
                       </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -93,22 +95,30 @@ export default function Home() {
                   <CardTitle className="text-lg">Driver Quick Links</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-2 gap-2">
-                  <Button variant="secondary" className="justify-start">
+                  <Link href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647" passHref>
+                  <Button variant="secondary" className="w-full justify-start">
                     <Users className="mr-2 h-4 w-4" />
-                    Driver Portal
+                    Apply Now
                   </Button>
-                  <Button variant="secondary" className="justify-start">
+                  </Link>
+                  <Link href="/str-radio" passHref>
+                  <Button variant="secondary" className="w-full justify-start">
                     <Radio className="mr-2 h-4 w-4" />
                     STR Radio
                   </Button>
-                  <Button variant="secondary" className="justify-start">
+                  </Link>
+                  <Link href="/driver-resources" passHref>
+                  <Button variant="secondary" className="w-full justify-start">
                     <FileText className="mr-2 h-4 w-4" />
                     Resources
                   </Button>
-                  <Button variant="secondary" className="justify-start">
+                  </Link>
+                  <Link href="/directory" passHref>
+                  <Button variant="secondary" className="w-full justify-start">
                     <Phone className="mr-2 h-4 w-4" />
-                    Contact
+                    Directory
                   </Button>
+                  </Link>
                 </CardContent>
               </Card>
             </div>
@@ -273,11 +283,11 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <div className="rounded-full w-16 h-16 overflow-hidden">
                     <Image
-                      src="/images/trucks/hero-truck.webp"
+                      src="/images/drivers/Truckdriver1.png"
                       alt="Driver Name"
                       width={64}
                       height={64}
-                      className="object-cover w-full h-full"
+                      className="object-cover object-top w-full h-full"
                     />
                   </div>
                   <div>
@@ -303,11 +313,11 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <div className="rounded-full w-16 h-16 overflow-hidden">
                     <Image
-                      src="/images/trucks/hero-truck.webp"
+                      src="/images/drivers/Truckdriver2.png"
                       alt="Driver Name"
                       width={64}
                       height={64}
-                      className="object-cover w-full h-full"
+                      className="object-cover object-top w-full h-full"
                     />
                   </div>
                   <div>

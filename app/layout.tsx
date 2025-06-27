@@ -20,6 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
+      <head>
+        <link rel="icon" href="/placeholder-logo.svg" />
+      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
