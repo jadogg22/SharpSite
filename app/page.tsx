@@ -19,6 +19,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { MyHeader } from "@/components/MyHeader";
 import { MyFooter } from "@/components/MyFooter";
+import { DriverInterestForm } from "@/components/DriverInterestForm";
 
 export default function Home() {
   return (
@@ -53,11 +54,9 @@ export default function Home() {
                         </p>
 
                     <div className="flex flex-wrap gap-3">
-                      <a href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647" className="hidden md:inline-block">
-                      <Button size="lg" className="bg-primary hover:bg-primary/90">
-                        Apply Now
-                      </Button>
-                      </a>
+                      <div className="hidden md:inline-block">
+                        <DriverInterestForm />
+                      </div>
                       <Link href="/employment" passHref>
                       <Button
                         size="lg"
@@ -95,12 +94,7 @@ export default function Home() {
                   <CardTitle className="text-lg">Driver Quick Links</CardTitle>
                 </CardHeader>
                 <CardContent className="grid grid-cols-2 gap-2">
-                  <Link href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647" passHref>
-                  <Button variant="secondary" className="w-full justify-start">
-                    <Users className="mr-2 h-4 w-4" />
-                    Apply Now
-                  </Button>
-                  </Link>
+                  <DriverInterestForm buttonVariant="secondary" buttonClassName="w-full justify-start" />
                   <Link href="/str-radio" passHref>
                   <Button variant="secondary" className="w-full justify-start">
                     <Radio className="mr-2 h-4 w-4" />
@@ -371,11 +365,7 @@ export default function Home() {
                 If you're tired of being a number, come work with folks who know your name and answer the damn phone.
               </p>
             <div className="mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-              <Link href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647" passHref>
-              <Button size="lg" variant="secondary">
-                Apply Now
-              </Button>
-              </Link >
+              <DriverInterestForm />
               <Link href="/directory?tab=Recruitment" passHref>
               <Button
                 size="lg"
