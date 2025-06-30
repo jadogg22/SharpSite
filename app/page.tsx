@@ -277,7 +277,7 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <div className="rounded-full w-16 h-16 overflow-hidden">
                     <Image
-                      src="/images/drivers/Truckdriver1.png"
+                      src="/images/drivers/truckdriver1.png"
                       alt="Driver Name"
                       width={64}
                       height={64}
@@ -307,7 +307,7 @@ export default function Home() {
                 <div className="flex items-center gap-4">
                   <div className="rounded-full w-16 h-16 overflow-hidden">
                     <Image
-                      src="/images/drivers/Truckdriver2.png"
+                      src="/images/drivers/TruckDriver2.png"
                       alt="Driver Name"
                       width={64}
                       height={64}

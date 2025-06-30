@@ -53,7 +53,7 @@ export default function Employment() {
       <section className="container py-12 flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2 flex-shrink-0">
           <Image
-            src="/images/drivers/rob wilson.avif"
+            src="/images/drivers/Rob%20Wilson.avif"
             alt="Rob Wilson, Sharp driver"
             width={500}
             height={400}
