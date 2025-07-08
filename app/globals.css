@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../styles/theme-colors.css";
 
 body {
   font-family: Arial, Helvetica, sans-serif;

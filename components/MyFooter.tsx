@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone, Instagram, Youtube } from 'lucide-react';
 import React from 'react';
 import Link from 'next/link';
 
@@ -21,6 +21,7 @@ export const MyFooter = () => (
               <p className="mt-4 text-sm">
                 Providing reliable transportation services across North America for over 35 years.
               </p>
+              <h3 className="text-lg font-medium text-white mt-6 mb-4">Follow Us</h3>
               <div className="mt-6 flex space-x-4">
                 <a href="https://www.facebook.com/sharptransportation" className="text-gray-400 hover:text-white">
                   <span className="sr-only">Facebook</span>
@@ -47,6 +48,14 @@ export const MyFooter = () => (
                       clipRule="evenodd"
                     />
                   </svg>
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white">
+                  <span className="sr-only">Instagram</span>
+                  <Instagram className="h-6 w-6" />
+                </a>
+                <a href="#" className="text-gray-400 hover:text-white">
+                  <span className="sr-only">YouTube</span>
+                  <Youtube className="h-6 w-6" />
                 </a>
               </div>
             </div>
@@ -165,4 +174,3 @@ export const MyFooter = () => (
         </div>
       </footer>
 );
-

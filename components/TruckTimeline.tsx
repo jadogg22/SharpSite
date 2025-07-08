@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
-
+import Image from 'next/image';
 
 const timelineData = [
   { year: "1970", text: "John T Sharp creates Sharp Transportation of Wellsville, UT." },
@@ -76,7 +76,7 @@ useEffect(() => {
   
    const getTruckPosition = (index: number) => {
     const diff = index - currentIndex;
-    return 50 + (diff * 100);
+    return 50 + (diff * 40);
   };
 
   return (
@@ -142,46 +142,41 @@ useEffect(() => {
             // Calculate position based on current index
             const position = getTruckPosition(index);
             const isActive = index === currentIndex;
-            
-            // Only render trucks that could be visible (-100% to 200% position)
-            if (position < -100 || position > 200) return null;
+            const diff = index - currentIndex;
+
+            // Only render the current truck and its immediate neighbors
+            if (Math.abs(diff) > 1) {
+              return null;
+            }
+
+            let currentOpacity = 1; // Always fully opaque for visible trucks
+            let currentScale = 1;   // Always full scale for visible trucks
             
             return (
               <div 
                 key={item.year}
                 className="absolute transition-all duration-500"
-                style={{ 
-                  bottom: '75px',
+                style={{
+                  bottom: '32px',
                   left: `${position}%`,
-                  transform: 'translateX(-50%)',
-                  opacity: position >= 0 && position <= 100 ? 1 : 0.3,
+                  transform: `translateX(-50%) scale(${currentScale})`,
+                  transformOrigin: 'bottom',
+                  opacity: currentOpacity,
                   zIndex: isActive ? 10 : 5
                 }}
               >
-                {/* Truck Cab */}
                 <div className="relative">
-                  <div className="relative w-28 h-24 bg-white rounded-lg shadow-md">
-                    {/* Cab details */}
-                    <div className="absolute top-4 left-3 w-12 h-10 bg-blue-200 rounded" /> {/* Windshield */}
-                    <div className="absolute bottom-0 w-28 h-6 bg-gray-800" /> {/* Chassis */}
-                    <div className="absolute -bottom-4 left-2 w-8 h-8 bg-black rounded-full" /> {/* Front wheel */}
-                    <div className="absolute -bottom-4 right-8 w-8 h-8 bg-black rounded-full" /> {/* Rear wheel */}
-                    <div className="absolute -bottom-4 right-0 w-8 h-8 bg-black rounded-full" /> {/* Rear wheel */}
-                  </div>
-                  
-                  {/* Trailer with timeline content */}
-                  <div className="absolute left-28 -top-2 w-72 h-28 bg-gradient-to-r from-gray-200 to-gray-300 rounded-sm border-2 border-gray-400">
-                    
-                    {/* Timeline text */}
-                    <div className="p-3 text-sm leading-tight text-gray-800">
-                      {item.text}
-                    </div>
-                    
-                    {/* Trailer wheels */}
-                    <div className="absolute -bottom-4 right-4 flex space-x-3">
-                      <div className="w-6 h-6 bg-black rounded-full" />
-                      <div className="w-6 h-6 bg-black rounded-full" />
-                    </div>
+                  <Image
+                    src="/images/trucks/truckandtrailer.jpeg"
+                    alt="Sharp Transportation Truck"
+                    width={500}
+                    height={150}
+                    className="rounded-lg shadow-md"
+                  />
+                  {/* Timeline text positioned over the trailer */}
+                  <div className="absolute top-3 bottom-3 left-[190px] right-3 p-3 text-sm leading-tight text-gray-800 bg-white/80 rounded-md">
+                    <p className="font-bold text-primary">{item.year}</p>
+                    <p className="mt-1">{item.text}</p>
                   </div>
                 </div>
               </div>
