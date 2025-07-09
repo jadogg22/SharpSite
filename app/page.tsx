@@ -89,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Driver Benefits Section */}
-      <section className="py-36" style={{ backgroundColor: 'var(--color-dark-blue)' }}>
+      <section className="py-36 bg-prot-squares">
         <div className="container">
           <div className="mb-8">
             <h2 className="text-3xl font-bold tracking-tight" style={{ color: 'var(--color-white)' }}>Why Drive With Sharp</h2>
@@ -166,9 +166,9 @@ export default function Home() {
 
       <OurEquipment />
 
-      <HowToJoinSharp />
+      <HowToJoinSharp className="bg-subtle-prism" />
 
-      
+
 
       <NewDriverInterest />
 

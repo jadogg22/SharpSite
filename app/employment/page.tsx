@@ -2,7 +2,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button} from "@/components/ui/button";
-import { Users, DollarSign, Truck, HeartPulse, CheckCircle } from "lucide-react";
+import { Users, DollarSign, Truck, HeartPulse, CheckCircle, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import {MyHeader} from "@/components/MyHeader";
 import {MyFooter} from "@/components/MyFooter";
 
@@ -11,8 +12,37 @@ const perkPhotos = [
   { src: "/images/trucks/road.jpg", alt: "Truck on highway" },
   { src: "/images/drivers/lies.avif", alt: "Sharp drivers together" },
   { src: "/images/trucks/wellsvile.avif", alt: "Yard and warehouse" },
-  { src: "/images/drivers/generic_drivers.avif", alt: "Happy driver in cab" },
+  { src: "/images/drivers/generic_driver.avif", alt: "Happy driver in cab" },
 ];
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1.0] } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const timelineSteps = [
+  ["Apply Online", "Complete our simple online application in just minutes."],
+  ["Quick Review", "We review your app and reach out within 24 hours."],
+  ["Interview", "Chat with our team and see where you fit best."],
+  ["Start Driving", "Complete orientation and hit the road."],
+];
+
+const TimelineStep = ({ title, desc, index }) => (
+  <motion.li variants={itemVariants} className="relative">
+    <div className="absolute -left-4 top-1 w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold ">
+      {index + 1}
+    </div>
+    <div className="pl-4">
+      <h4 className="font-semibold text-xl text-gray-800">{title}</h4>
+      <p className="text-gray-600 mt-1">{desc}</p>
+    </div>
+  </motion.li>
+);
 
 export default function Employment() {
   return (
@@ -20,7 +50,7 @@ export default function Employment() {
       <MyHeader />
 
       {/* Hero: Real fleet banner */}
-      <section className="relative h-[350px] md:h-[440px] w-full">
+      <section className="relative h-[400px] md:h-[500px] w-full">
         <Image
           src="/images/trucks/bearlake.avif"
           alt="Sharp Transportation Trucks"
@@ -28,151 +58,192 @@ export default function Employment() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/30 to-primary/5 flex flex-col justify-center">
-          <div className="container max-w-2xl px-4">
-            <h1 className="text-white text-3xl md:text-5xl font-extrabold mb-3 drop-shadow">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end">
+          <div className="container max-w-3xl px-4 pb-16">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
               Drive With The Sharp Team
-            </h1>
-            <p className="text-white/80 mb-6 font-medium">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-white/90 text-lg md:text-xl mb-8 font-medium">
               We’re growing, and we want you on the road with us. Family-run, modern fleet, nationwide opportunity.
-            </p>
-            <a
-              href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button size="lg" className="bg-primary">
-                Apply Now
-              </Button>
-            </a>
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}>
+              <a
+                href="https://intelliapp.driverapponline.com/c/sharptransportation?uri_b=ia_sharptransportation_1928688647"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-3">
+                  Apply Now <ArrowRight className="ml-2" />
+                </Button>
+              </a>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Culture / Testimonial */}
-      <section className="container py-12 flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-1/2 flex-shrink-0">
+      <motion.section 
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="container py-16 flex flex-col md:flex-row items-center gap-12">
+        <motion.div variants={itemVariants} className="md:w-1/2 flex-shrink-0">
           <Image
             src="/images/drivers/Rob%20Wilson.avif"
             alt="Rob Wilson, Sharp driver"
             width={500}
             height={400}
-            className="rounded-xl object-cover shadow-lg border-4 border-primary/10"
+            className="rounded-2xl object-cover shadow-2xl border-8 border-white"
           />
-        </div>
-        <div className="md:w-1/2">
-          <h2 className="text-2xl font-bold mb-3 text-primary">The Sharp Difference</h2>
-          <p className="text-gray-700 mb-3">
+        </motion.div>
+        <motion.div variants={itemVariants} className="md:w-1/2">
+          <h2 className="text-3xl font-bold mb-4 text-gray-800">The Sharp Difference</h2>
+          <p className="text-gray-600 text-lg mb-5">
             In 35 years, we’ve grown from a single truck to a nationwide operation with over 75% driver retention. Our team still feels like family.
           </p>
-          <blockquote className="bg-primary/10 border-l-4 border-primary px-6 py-4 rounded text-gray-800 italic">
+          <blockquote className="bg-blue-50 border-l-4 border-blue-500 px-6 py-5 rounded-r-lg text-gray-700 italic text-lg">
             "I’ve worked at big carriers before, but here, I’m not just a number. Dispatch knows my name, and I get the miles I want."
-            <span className="block mt-2 text-sm font-bold text-primary">– Rob Wilson, Company Driver</span>
+            <span className="block mt-3 text-md font-bold text-gray-800">– Rob Wilson, Company Driver</span>
           </blockquote>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* Perks with photo grid */}
-      <section className="bg-white py-12">
+      <motion.section 
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="bg-white py-20 bg-flowing-lines">
         <div className="container">
-          <h2 className="text-3xl font-bold mb-6 text-center">Driver Benefits & Perks</h2>
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">Driver Benefits & Perks</h2>
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Benefits list */}
-            <ul className="space-y-3 text-base text-gray-800">
-              <li className="flex items-center"><DollarSign className="text-primary mr-2" /> Weekly pay + monthly bonuses</li>
-              <li className="flex items-center"><Truck className="text-primary mr-2" /> New trucks (3 years or newer)</li>
-              <li className="flex items-center"><HeartPulse className="text-primary mr-2" /> Full medical, dental, life</li>
-              <li className="flex items-center"><Users className="text-primary mr-2" /> Rider & pet programs</li>
-              <li className="flex items-center"><CheckCircle className="text-green-600 mr-2" /> $2,000 sign-on bonus</li>
-              <li className="flex items-center"><CheckCircle className="text-green-600 mr-2" /> Pre-planned freight = less dock time</li>
-              <li className="flex items-center"><CheckCircle className="text-green-600 mr-2" /> Paid vacation & 401k match</li>
-            </ul>
+            <motion.ul 
+              variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+              className="space-y-4 text-lg text-gray-700">
+              <motion.li variants={itemVariants} className="flex items-center"><DollarSign className="text-blue-500 mr-3" /> Weekly pay + monthly bonuses</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><Truck className="text-blue-500 mr-3" /> New trucks (3 years or newer)</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><HeartPulse className="text-blue-500 mr-3" /> Full medical, dental, life</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><Users className="text-blue-500 mr-3" /> Rider & pet programs</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><CheckCircle className="text-green-500 mr-3" /> $2,000 sign-on bonus</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><CheckCircle className="text-green-500 mr-3" /> Pre-planned freight = less dock time</motion.li>
+              <motion.li variants={itemVariants} className="flex items-center"><CheckCircle className="text-green-500 mr-3" /> Paid vacation & 401k match</motion.li>
+            </motion.ul>
             {/* Photos grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <motion.div 
+              variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+              className="grid grid-cols-2 gap-4">
               {perkPhotos.map((photo, i) => (
-                <Image
-                  key={i}
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={240}
-                  height={180}
-                  className="rounded-lg object-cover h-32 w-full shadow-md"
-                />
+                <motion.div key={i} variants={itemVariants}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={240}
+                    height={180}
+                    className="rounded-xl object-cover h-40 w-full shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  />
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Steps/How To Join + Requirements */}
-      <section className="container py-12">
-  <div className="grid md:grid-cols-2 gap-12 items-start">
-    {/* Steps timeline + CTA */}
-    <div>
-      <h3 className="text-2xl font-bold mb-6">How to Join Sharp</h3>
-      <ol className="relative border-l-2 border-primary/40 pl-6 space-y-8">
-        {[
-          ["Apply Online", "Complete our simple online application in just minutes."],
-          ["Quick Review", "We review your app and reach out within 24 hours."],
-          ["Interview", "Chat with our team and see where you fit best."],
-          ["Start Driving", "Complete orientation and hit the road."],
-        ].map(([title, desc], i) => (
-          <li key={i}>
-            <div className="absolute -left-4 top-1.5 w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center font-bold">
-              {i + 1}
-            </div>
-            <div className="pl-6">
-              <h4 className="font-semibold text-lg">{title}</h4>
-              <p className="text-gray-600 text-sm">{desc}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <button className="mt-10 px-6 py-3 bg-black text-white rounded-md shadow hover:bg-gray-800 transition">
-        Apply Now
-      </button>
-    </div>
+      <motion.section 
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="container py-20 bg-subtle-prism">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          {/* Steps timeline + CTA */}
+          <motion.div
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}>
+            <h3 className="text-3xl font-bold mb-8">How to Join Sharp</h3>
+            <motion.ol 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{ visible: { transition: { staggerChildren: 0.2 } } }}
+              className="relative border-l-2 border-blue-300 pl-6 space-y-10">
+              {timelineSteps.map(([title, desc], i) => (
+                <motion.li key={title} variants={itemVariants} className="relative">
+                  <div className="absolute -left-4 top-1 w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold ">
+                    {i + 1}
+                  </div>
+                  <div className="pl-6">
+                    <h4 className="font-semibold text-xl text-gray-800">{title}</h4>
+                    <p className="text-gray-600 mt-1">{desc}</p>
+                  </div>
+                </motion.li>
+              ))}
+            </motion.ol>
+          </motion.div>
 
-    {/* Requirements with a photo */}
-    <div>
-      <h3 className="text-2xl font-bold mb-6">Minimum Requirements</h3>
-      <div className="rounded-md overflow-hidden mb-4 shadow-lg border">
-        <Image
-          src="/images/drivers/generic_driver.avif"
-          alt="Sharp driver in truck"
-          width={360}
-          height={200}
-          className="object-cover w-full h-48"
-        />
-      </div>
-      <ul className="space-y-3 text-gray-800">
-        {[
-          "22 years old",
-          "1 year experience (or very close)",
-          "No serious traffic violations in last 3 years",
-          "No DWI/DUI in past 10 years",
-          "Owner-ops: late model equipment (2013+)",
-        ].map((item, i) => (
-          <li key={i} className="flex items-center text-sm">
-            <CheckCircle className="text-green-600 mr-2 w-5 h-5" /> {item}
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
-</section>
+          {/* Requirements with a photo */}
+          <motion.div variants={itemVariants}>
+            <h3 className="text-3xl font-bold mb-8">Minimum Requirements</h3>
+            <div className="bg-white p-8 rounded-xl shadow-lg border">
+              <Image
+                src="/images/drivers/generic_driver.avif"
+                alt="Sharp driver in truck"
+                width={360}
+                height={200}
+                className="object-cover w-full h-48 rounded-lg mb-6"
+              />
+              <ul className="space-y-3 text-gray-700">
+                {[
+                  "22 years old",
+                  "1 year experience (or very close)",
+                  "No serious traffic violations in last 3 years",
+                  "No DWI/DUI in past 10 years",
+                  "Owner-ops: late model equipment (2013+)",
+                ].map((item, i) => (
+                  <motion.li key={i} variants={itemVariants} className="flex items-center text-base">
+                    <CheckCircle className="text-green-500 mr-3 w-5 h-5 flex-shrink-0" /> {item}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </div>
+      </motion.section>
 
 
       {/* Non-CDL / Office */}
-      <section className="bg-primary/5 py-12">
+      <motion.section 
+        variants={sectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-gray-800 py-20">
         <div className="container text-center">
-          <h2 className="text-2xl font-bold mb-3">Not a CDL Driver?</h2>
-          <p className="mb-6 text-gray-800">We're also hiring for shop, office, and logistics. Drivers, mechanics, dispatchers, and more—join the Sharp family.</p>
+          <h2 className="text-3xl font-bold mb-4 text-white">Not a CDL Driver?</h2>
+          <p className="mb-8 text-gray-300 max-w-2xl mx-auto text-lg">We're also hiring for shop, office, and logistics. Drivers, mechanics, dispatchers, and more—join the Sharp family.</p>
           <Link href="/apply">
-            <Button size="lg">See Open Positions</Button>
+            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-800 text-lg px-8 py-3">
+              See Open Positions
+            </Button>
           </Link>
         </div>
-      </section>
+      </motion.section>
 
       <MyFooter />
     </div>

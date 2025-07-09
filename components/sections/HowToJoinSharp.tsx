@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, FileText, Search, Users, Truck, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const HowToJoinSharp = () => {
+export const HowToJoinSharp = ({ className = '' }) => {
   const steps = [
     {
       icon: FileText,
@@ -38,7 +38,7 @@ export const HowToJoinSharp = () => {
   ];
 
   return (
-    <section className="bg-gray-50 py-36">
+    <section className={`py-36 ${className}`}>
       <div className="container">
         <div className="mb-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight">How to Join Sharp</h2>
@@ -47,7 +47,7 @@ export const HowToJoinSharp = () => {
           </p>
         </div>
 
-        <div className="grid gap-12 md:grid-cols-2">
+        <div className="grid gap-12 md:grid-cols-2 bg-white bg-opacity-80 p-8 rounded-lg shadow-lg">
           {/* Steps */}
           <div className="relative pl-6 border-l border-gray-300 space-y-10">
             {steps.map((step, i) => {
@@ -59,7 +59,7 @@ export const HowToJoinSharp = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="relative pl-8"
+                  className="relative pl-8 bg-white bg-opacity-80 p-4 rounded-lg shadow-sm"
                 >
                   {/* Step Icon */}
                   <div className="absolute -left-3 top-0">
@@ -68,7 +68,9 @@ export const HowToJoinSharp = () => {
                     </div>
                   </div>
                   <h3 className="text-lg font-semibold">{step.title}</h3>
-                  <p className="text-muted-foreground text-sm">{step.description}</p>
+                  <p className="text-muted-foreground text-sm">
+                    {step.description}
+                  </p>
                 </motion.div>
               );
             })}

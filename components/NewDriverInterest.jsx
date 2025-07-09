@@ -10,7 +10,7 @@ export const NewDriverInterest = () => {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6 }}
       className="flex justify-center items-center py-8 px-4" style={{ backgroundColor: 'var(--color-dark-grey)' }}>
-      <div className="bg-white shadow-lg rounded-md w-full max-w-5xl grid grid-cols-1 md:grid-cols-2">
+      <div className="bg-white shadow-lg rounded-md w-full max-w-4xl grid grid-cols-1 md:grid-cols-2">
         {/* Left Side */}
         <div className="p-8 flex flex-col justify-center items-start space-y-6 border-b md:border-b-0 md:border-r border-gray-200">
           <Image src="/images/logo.webp" alt="Sharp Logo" width={200} height={60} className="h-auto w-auto" />
@@ -90,7 +90,7 @@ export const NewDriverInterest = () => {
             By submitting this form, I consent to Sharp Transportation and its affiliates contacting me via email, phone, or text (including from an auto-dialer) to inform me of employment opportunities.
           </p>
 
-          <button type="submit" className="w-full text-white font-bold py-3 px-6 rounded transition bg-[color:var(--color-bright-blue)] hover:bg-[color:var(--color-bright-blue-darker)]">
+          <button type="submit" className="w-full text-white font-bold py-3 px-6 rounded-lg transition-colors" style={{ backgroundColor: '#1794E6' }}>
             SEND NOW
           </button>
         </form>

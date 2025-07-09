@@ -251,10 +251,7 @@ export default function Directory() {
           </div>
         </div>
       </section>
-  <main className="flex-1 container mx-auto px-4 py-8">
-
-<section className="bg-gray-50 py-16">
-      <div className="container">
+    <main className="flex-1 container mx-auto px-4 py-24">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Sharp Staff Directory</h2>
           <div className="flex items-center justify-center mb-4">
@@ -330,8 +327,6 @@ export default function Directory() {
             ))}
           </Tabs>
         </div>
-      </div>
-    </section>
   </main>
   <MyFooter />
   </div>
