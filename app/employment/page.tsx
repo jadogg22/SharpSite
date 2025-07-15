@@ -1,18 +1,18 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { Button} from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Users, DollarSign, Truck, HeartPulse, CheckCircle, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import {MyHeader} from "@/components/MyHeader";
-import {MyFooter} from "@/components/MyFooter";
+import { MyHeader } from "@/components/MyHeader";
+import { MyFooter } from "@/components/MyFooter";
 
 // Swap these with your real photos!
 const perkPhotos = [
-  { src: "/images/trucks/road.jpg", alt: "Truck on highway" },
-  { src: "/images/drivers/lies.avif", alt: "Sharp drivers together" },
-  { src: "/images/trucks/wellsvile.avif", alt: "Yard and warehouse" },
-  { src: "/images/drivers/generic_driver.avif", alt: "Happy driver in cab" },
+  { src: "/images/shop/in-house-shop-1.JPG", alt: "Sharp's in-house shop" },
+  { src: "/images/shop/in-house-shop-3.jpg", alt: "Mechanic working on a truck" },
+  { src: "/images/shop/6B8A16451.JPG", alt: "Sharp's shop interior" },
+  { src: "/images/shop/6B8A16831.JPG", alt: "Another view of the shop" },
 ];
 
 const sectionVariants = {
@@ -60,14 +60,14 @@ export default function Employment() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end">
           <div className="container max-w-3xl px-4 pb-16">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">
               Drive With The Sharp Team
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -93,7 +93,7 @@ export default function Employment() {
       </section>
 
       {/* Culture / Testimonial */}
-      <motion.section 
+      <motion.section
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -121,7 +121,7 @@ export default function Employment() {
       </motion.section>
 
       {/* Perks with photo grid */}
-      <motion.section 
+      <motion.section
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -131,7 +131,7 @@ export default function Employment() {
           <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">Driver Benefits & Perks</h2>
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Benefits list */}
-            <motion.ul 
+            <motion.ul
               variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
               className="space-y-4 text-lg text-gray-700">
               <motion.li variants={itemVariants} className="flex items-center"><DollarSign className="text-blue-500 mr-3" /> Weekly pay + monthly bonuses</motion.li>
@@ -143,7 +143,7 @@ export default function Employment() {
               <motion.li variants={itemVariants} className="flex items-center"><CheckCircle className="text-green-500 mr-3" /> Paid vacation & 401k match</motion.li>
             </motion.ul>
             {/* Photos grid */}
-            <motion.div 
+            <motion.div
               variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
               className="grid grid-cols-2 gap-4">
               {perkPhotos.map((photo, i) => (
@@ -163,7 +163,7 @@ export default function Employment() {
       </motion.section>
 
       {/* Steps/How To Join + Requirements */}
-      <motion.section 
+      <motion.section
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -177,7 +177,7 @@ export default function Employment() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}>
             <h3 className="text-3xl font-bold mb-8">How to Join Sharp</h3>
-            <motion.ol 
+            <motion.ol
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
@@ -202,11 +202,11 @@ export default function Employment() {
             <h3 className="text-3xl font-bold mb-8">Minimum Requirements</h3>
             <div className="bg-white p-8 rounded-xl shadow-lg border">
               <Image
-                src="/images/drivers/generic_driver.avif"
+                src="/images/drivers/canyon_w_driver.png"
                 alt="Sharp driver in truck"
                 width={360}
                 height={200}
-                className="object-cover w-full h-48 rounded-lg mb-6"
+                className="object-cover w-full h-64 rounded-lg mb-6"
               />
               <ul className="space-y-3 text-gray-700">
                 {[
@@ -228,7 +228,7 @@ export default function Employment() {
 
 
       {/* Non-CDL / Office */}
-      <motion.section 
+      <motion.section
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
@@ -236,9 +236,9 @@ export default function Employment() {
         className="bg-gray-800 py-20">
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Not a CDL Driver?</h2>
-          <p className="mb-8 text-gray-300 max-w-2xl mx-auto text-lg">We're also hiring for shop, office, and logistics. Drivers, mechanics, dispatchers, and more—join the Sharp family.</p>
+          <p className="mb-8 text-gray-300 max-w-2xl mx-auto text-lg">We're also hiring for our in-house shop, office, and logistics teams. Expert mechanics, dispatchers, and more—join the Sharp family.</p>
           <Link href="/apply">
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-gray-800 text-lg px-8 py-3">
+            <Button size="lg" className="bg-white text-gray-800 hover:bg-primary hover:text-white text-lg px-8 py-3">
               See Open Positions
             </Button>
           </Link>

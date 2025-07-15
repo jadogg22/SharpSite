@@ -73,7 +73,7 @@ export default function AboutPage() {
         <section className="bg-gradient-to-r from-primary/10 to-white py-24">
           <div className="container grid md:grid-cols-2 gap-16 items-center">
             <div className="relative flex items-center justify-center">
-              <div className="relative w-80 h-80 rounded-full overflow-hidden shadow-2xl border-8 border-primary/20">
+              <div className="relative w-96 h-96 rounded-full overflow-hidden shadow-2xl border-8 border-primary/20">
                 <Image
                   src="/images/drivers/ZanSharpSmall.png"
                   alt="Zan Sharp - President/Owner"

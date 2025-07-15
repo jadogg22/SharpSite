@@ -74,10 +74,7 @@ useEffect(() => {
     }
   };  
   
-   const getTruckPosition = (index: number) => {
-    const diff = index - currentIndex;
-    return 50 + (diff * 40);
-  };
+   
 
   return (
     <div className="flex justify-center my-8">
@@ -133,51 +130,46 @@ useEffect(() => {
           </div>
           
           {/* Mouse instruction */}
-          <div className="absolute top-16 left-0 right-0 text-center text-white text-sm opacity-70">
+          <div className="absolute top-10 left-0 right-0 text-center text-white text-sm opacity-70">
             Use mouse wheel or buttons to navigate the timeline
           </div>
           
           {/* Trucks with Timeline Data */}
           {timelineData.map((item, index) => {
-            // Calculate position based on current index
-            const position = getTruckPosition(index);
-            const isActive = index === currentIndex;
             const diff = index - currentIndex;
+            const position = -diff * 100;
+            const isActive = diff === 0;
 
-            // Only render the current truck and its immediate neighbors
+            // Only render the current, previous, and next trucks for performance.
             if (Math.abs(diff) > 1) {
               return null;
             }
 
-            let currentOpacity = 1; // Always fully opaque for visible trucks
-            let currentScale = 1;   // Always full scale for visible trucks
-            
             return (
-              <div 
+              <div
                 key={item.year}
-                className="absolute transition-all duration-500"
+                className="absolute transition-transform duration-500 ease-in-out"
                 style={{
-                  bottom: '32px',
-                  left: `${position}%`,
-                  transform: `translateX(-50%) scale(${currentScale})`,
-                  transformOrigin: 'bottom',
-                  opacity: currentOpacity,
-                  zIndex: isActive ? 10 : 5
+                  bottom: '40px',
+                  left: '0%',
+                  transform: `translateX(${position}vw)`,
+                  zIndex: isActive ? 10 : 5,
+                  opacity: 1,
                 }}
               >
                 <div className="relative">
                   <Image
-                    src="/images/trucks/truckandtrailer.jpeg"
+                    src="/images/trucks/sharp_truck_no_bg.png"
                     alt="Sharp Transportation Truck"
-                    width={500}
-                    height={150}
-                    className="rounded-lg shadow-md"
+                    width={600}
+                    height={200}
+                    className="rounded-lg"
                   />
-                  {/* Timeline text positioned over the trailer */}
-                  <div className="absolute top-3 bottom-3 left-[190px] right-3 p-3 text-sm leading-tight text-gray-800 bg-white/80 rounded-md">
-                    <p className="font-bold text-primary">{item.year}</p>
-                    <p className="mt-1">{item.text}</p>
-                  </div>
+                </div>
+                {/* Timeline text positioned above the truck */}
+                <div className="absolute -top-24 left-1/2 -translate-x-1/2 p-3 text-sm leading-tight text-gray-800 bg-white/80 rounded-md shadow-lg w-96 text-center">
+                  <p className="font-bold text-primary">{item.year}</p>
+                  <p className="mt-1">{item.text}</p>
                 </div>
               </div>
             );

@@ -79,7 +79,7 @@ export const HowToJoinSharp = ({ className = '' }) => {
           {/* Requirements */}
           <div className="space-y-6">
             <h3 className="text-xl font-semibold">Minimum Requirements</h3>
-            <ul className="space-y-6 text-sm text-muted-foreground">
+            <ul className="space-y-8 text-base text-muted-foreground">
               {requirements.map((item, i) => (
                 <motion.li
                   key={i}
@@ -87,7 +87,7 @@ export const HowToJoinSharp = ({ className = '' }) => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="flex items-start gap-2"
+                  className="flex items-start gap-4"
                 >
                   <CheckCircle className="text-green-600 h-5 w-5 mt-0.5" />
                   <span>{item}</span>

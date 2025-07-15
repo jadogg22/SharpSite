@@ -4,7 +4,7 @@
 
 I'm going to have to think long and hard about what I want to do for this because our solution right now isn't that great.
 
-## setup playwrite for testing!
+## setup playwrite for testing
 
 I've never done testing like this before So I think thats one of my next goals where I can fix changes that happen.
 
@@ -16,4 +16,6 @@ I've never done testing like this before So I think thats one of my next goals w
 - **Live Chat Support:** Implement live chat for immediate inquiries.
 - **Stronger "Why Choose Us" Messaging:** Clearly articulate Sharp Transportation's unique selling propositions.
 - **SEO Optimization:** Review and improve SEO to ensure better search engine visibility.
-- **Social Media Integration:** Add social media feeds or links to encourage engagement. -  Choose a service (e.g., LightWidget, SnapWidget).
+- **Social Media Integration:** Add social media feeds or links to encourage engagement. - Choose a service (e.g., LightWidget, SnapWidget)
+
+need to talk about the Services that we need to create.
