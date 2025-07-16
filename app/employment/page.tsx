@@ -153,7 +153,8 @@ export default function Employment() {
                     alt={photo.alt}
                     width={240}
                     height={180}
-                    className="rounded-xl object-cover h-40 w-full shadow-lg transform hover:scale-105 transition-transform duration-300"
+                                        className={`rounded-xl object-cover h-40 w-full shadow-lg transform hover:scale-105 transition-transform duration-300 ${i === 1 ? "object-bottom" : ""} ${i === 2 ? "blur-xs" : ""}`}
+
                   />
                 </motion.div>
               ))}
