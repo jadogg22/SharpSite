@@ -7,12 +7,12 @@ import { motion } from "framer-motion";
 import { MyHeader } from "@/components/MyHeader";
 import { MyFooter } from "@/components/MyFooter";
 
-// Swap these with your real photos!
+// Swapped these with more driver-focused photos
 const perkPhotos = [
-  { src: "/images/shop/in-house-shop-1.JPG", alt: "Sharp's in-house shop" },
-  { src: "/images/shop/in-house-shop-3.jpg", alt: "Mechanic working on a truck" },
-  { src: "/images/shop/6B8A16451.JPG", alt: "Sharp's shop interior" },
-  { src: "/images/shop/6B8A16831.JPG", alt: "Another view of the shop" },
+  { src: "/images/drivers/driver_with_dog.jpg", alt: "A Sharp driver with their dog in the truck" },
+  { src: "/images/trucks/front_w_trailer.jpg", alt: "A Sharp Transportation truck and trailer" },
+  { src: "/images/trucks/inside_cab.jpg", alt: "The modern interior of a Sharp truck cab" },
+  { src: "/images/drivers/driver_with_fam.png", alt: "A Sharp driver with their family" },
 ];
 
 const sectionVariants = {
@@ -214,7 +214,7 @@ export default function Employment() {
                   "1 year experience (or very close)",
                   "No serious traffic violations in last 3 years",
                   "No DWI/DUI in past 10 years",
-                  "Owner-ops: late model equipment (2013+)",
+                  "Owner-ops: late model equipment (2014+)",
                 ].map((item, i) => (
                   <motion.li key={i} variants={itemVariants} className="flex items-center text-base">
                     <CheckCircle className="text-green-500 mr-3 w-5 h-5 flex-shrink-0" /> {item}
