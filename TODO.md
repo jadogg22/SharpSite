@@ -2,25 +2,46 @@
 
 A list of tasks to improve the Sharp Transportation website.
 
-## 🚀 Core Features & Improvements
-
-- [ ] **Trailer Tracking System:** Research and design a new trailer tracking solution.
-- [ ] **Automated Testing:** Set up Playwright for end-to-end testing to ensure site stability.
-
 ## ✨ Website Enhancements
 
-### Visuals & Interactivity
-- [ ] **Dynamic Hero Sections:** Explore video backgrounds or drone footage.
-- [ ] **Interactive Rate Calculator:** Add a simple calculator for shippers.
-- [ ] **Interactive Service Map:** Show service areas on a map.
-- [ ] **Driver Pay Calculator:** Create a tool for potential drivers.
-
-### Content & User Experience
-- [ ] **Personalized Content:** Tailor content for drivers vs. shippers.
-- [ ] **Live Chat Support:** Implement a live chat feature.
-- [ ] **Refine "Why Choose Us":** Clearly state unique selling points.
-- [ ] **Social Media Integration:** Embed social media feeds.
-
 ### SEO & Technical
+
 - [ ] **SEO Optimization:** Review and improve search engine visibility.
 - [ ] **Define Services:** Flesh out the services section.
+
+## 📝 Page-Specific Tasks
+
+### Home Page
+
+- [x] Fix form functionality.
+- [x] Correct footer links.
+- [ ] Update main video with better shots.
+
+### About Page
+
+- [x] Fix "Contact Us" functionality.
+
+### Logistics Page
+
+- [ ] Create a plan for the page content.
+
+### FAQ Page
+
+- [x] Update FAQ content.
+
+### Employment Page
+
+- [ ] Plan and add more content.
+
+### Driver Resources Page
+
+- [ ] Add new forms.
+
+### Directory Page
+
+- [x] Update hero image.
+
+## miscellaneous
+
+- [x] **Blog for SEO:** Generate blog posts about past projects and company news.
+

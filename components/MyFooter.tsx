@@ -49,11 +49,11 @@ export const MyFooter = () => (
                     />
                   </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white">
+                <a href="https://www.instagram.com/sharp.transportation/" className="text-gray-400 hover:text-white">
                   <span className="sr-only">Instagram</span>
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white">
+                <a href="https://www.youtube.com/@sharptransportation" className="text-gray-400 hover:text-white">
                   <span className="sr-only">YouTube</span>
                   <Youtube className="h-6 w-6" />
                 </a>
@@ -72,11 +72,7 @@ export const MyFooter = () => (
                     Driver Resources
                   </Link>
                 </li>
-                <li>
-                  <a href="https://intelliapp.driverapponline.com/c/sharptruck?r=website" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                    Driver Portal
-                  </a>
-                </li>
+                
                 <li>
                   <Link href="/str-radio" className="hover:text-white transition-colors">
                     STR Radio
@@ -92,16 +88,7 @@ export const MyFooter = () => (
                     Track Shipment
                   </a>
                 </li>
-                <li>
-                  <Link href="/services" className="hover:text-white transition-colors">
-                    Request a Quote
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="hover:text-white transition-colors">
-                    Services
-                  </Link>
-                </li>
+                
                 <li>
                   <Link href="/directory" className="hover:text-white transition-colors">
                     Directory

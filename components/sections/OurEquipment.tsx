@@ -105,7 +105,7 @@ export const OurEquipment = () => {
               className="flex flex-col items-center space-y-2"
             >
               <Users className="h-10 w-10 text-white" />
-              <span className="text-3xl font-bold">350+</span>
+              <span className="text-3xl font-bold">200+</span>
               <p className="text-sm text-gray-300">Experienced Drivers</p>
             </motion.div>
             <motion.div

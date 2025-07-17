@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -17,7 +18,10 @@ const navLinks = [
     { href: "/directory", label: "Directory" },
 ]
 
-export const MyHeader = () => (
+export const MyHeader = () => {
+    const pathname = usePathname();
+
+    return (
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-zinc-900/95">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-6 md:gap-10">
@@ -111,4 +115,5 @@ export const MyHeader = () => (
           </div>
         </div>
       </header>
-);
+    );
+}

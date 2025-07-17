@@ -1,11 +1,39 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { MapPin, Phone, Send } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 
 export default function ContactUs() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleMailto = () => {
+    const { firstName, lastName, email, subject, message } = formData;
+    const recipient = 'info@sharptransportation.com'; // Replace with your desired recipient email
+    const mailtoSubject = encodeURIComponent(subject || 'General Inquiry from Website');
+    const mailtoBody = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\n` +
+      `Email: ${email}\n\n` +
+      `Message:\n${message}`
+    );
+    window.location.href = `mailto:${recipient}?subject=${mailtoSubject}&body=${mailtoBody}`;
+  };
+
   return (
     <section className="bg-gray-50 py-16">
       <div className="container">
@@ -37,41 +65,41 @@ export default function ContactUs() {
           </div>
 
           <div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleMailto(); }}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label htmlFor="firstName" className="text-sm font-medium">
                     First Name
                   </label>
-                  <Input id="firstName" placeholder="First Name" />
+                  <Input id="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="lastName" className="text-sm font-medium">
                     Last Name
                   </label>
-                  <Input id="lastName" placeholder="Last Name" />
+                  <Input id="lastName" placeholder="Last Name" value={formData.lastName} onChange={handleChange} />
                 </div>
               </div>
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="Email" />
+                <Input id="email" type="email" placeholder="Email" value={formData.email} onChange={handleChange} />
               </div>
               <div className="space-y-2">
                 <label htmlFor="subject" className="text-sm font-medium">
                   Subject
                 </label>
-                <Input id="subject" placeholder="Subject" />
+                <Input id="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} />
               </div>
               <div className="space-y-2">
                 <label htmlFor="message" className="text-sm font-medium">
                   Message
                 </label>
-                <Textarea id="message" placeholder="Type your message here..." rows={5} />
+                <Textarea id="message" placeholder="Type your message here..." rows={5} value={formData.message} onChange={handleChange} />
               </div>
               <Button type="submit" className="w-full">
-                Submit
+                Send Email
                 <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>
