@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="relative h-[85vh] w-full overflow-hidden">
         <video
-          src="/videos/broll.mp4"
+          src="/videos/broll_optimized.mp4"
           autoPlay
           loop
           muted
