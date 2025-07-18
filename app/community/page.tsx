@@ -2,103 +2,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { HeartHandshake, Baby, Truck, Award, ArrowRight, Trophy, Users, Newspaper } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { motion, easeOut } from "framer-motion";
 import { MyHeader } from "@/components/MyHeader";
 import { MyFooter } from "@/components/MyFooter";
 import ImpactGallery from "@/components/ImpactGallery";
-
-const impactAreas = [
-  {
-    icon: <HeartHandshake className="w-10 h-10 text-blue-500" />,
-    title: "Youth & Sports",
-    description: "We built an indoor baseball training facility for our local high school — because strong teams build strong communities.",
-    image: "/images/trucks/1st area 1.14.jpg",
-  },
-  {
-    icon: <Baby className="w-10 h-10 text-pink-500" />,
-    title: "Little Lambs",
-    description: "We support Little Lambs to provide essentials for families and children in need. Compassion is part of our culture.",
-    image: "/images/drivers/driver_with_fam.png", // Replaced placeholder
-  },
-  {
-    icon: <Truck className="w-10 h-10 text-red-500" />,
-    title: "Wrapped Trucks With Meaning",
-    description: "Our custom trucks honor the causes closest to our hearts — from veterans and EMS to breast cancer awareness.",
-    image: "/images/trucks/hero-truck.webp",
-  },
-  {
-    icon: <Award className="w-10 h-10 text-green-500" />,
-    title: "Wreaths Across America",
-    description: "Every December, we haul remembrance wreaths to honor our fallen heroes and their families.",
-    image: "/images/drivers/ZanSharp.JPG", // Replaced placeholder
-  },
-];
-
-const latestNews = [
-  {
-    title: "Annual Wreaths Across America Convoy a Success",
-    date: "December 18, 2024",
-    excerpt: "For the fifth year running, our drivers proudly delivered thousands of wreaths to honor our nation's heroes...",
-    image: "/images/drivers/ZanSharp.JPG",
-    link: "/blog/wreaths-across-america-2024",
-  },
-  {
-    title: "Celebrating the Grand Opening of the Training Facility",
-    date: "October 05, 2024",
-    excerpt: "This week we cut the ribbon on the new indoor baseball facility, a project years in the making...",
-    image: "/images/trucks/1st area 1.22.jpg",
-    link: "/blog/facility-grand-opening",
-  },
-  {
-    title: "Supporting Little Lambs at the Annual Gala",
-    date: "September 15, 2024",
-    excerpt: "We were honored to be a gold sponsor at the Little Lambs Foundation annual charity gala, supporting...",
-    image: "/images/drivers/driver_with_fam.png",
-    link: "/blog/little-lambs-gala-2024",
-  },
-];
-
-const wrappedTrucks = [
-  {
-    name: "EMS/First Responders Truck",
-    cause: "Honoring the daily sacrifices of our local heroes.",
-    image: "/images/trucks/hero-truck.webp",
-  },
-  {
-    name: "Veterans Tribute Truck",
-    cause: "A salute to the brave men and women of the armed forces.",
-    image: "/images/trucks/truckandtrailer.jpeg",
-  },
-  {
-    name: "Breast Cancer Awareness Truck",
-    cause: "Driving hope and awareness in the fight against breast cancer.",
-    image: "/images/trucks/truckStop.avif",
-  },
-];
-
-const impactNumbers = [
-  { number: "500+", text: "Wreaths Delivered Annually" },
-  { number: "1", text: "State-of-the-Art Training Facility Built" },
-  { number: "3", text: "Cause-Driven Truck Wraps on the Road" },
-  { number: "1000s", text: "Of Children Supported via Little Lambs" },
-];
-
-const galleryImages = [
-  { src: "/images/trucks/1st area 1.14.jpg", alt: "Indoor baseball facility" },
-  { src: "/images/trucks/hero-truck.webp", alt: "EMS wrapped truck" },
-  { src: "/images/trucks/1st area 1.18.jpg", alt: "Community event" },
-];
+import { CountUp } from "@/components/CountUp";
+import {
+  impactAreas,
+  latestNews,
+  wrappedTrucks,
+  impactNumbers,
+  galleryImages,
+} from "./communityData.tsx";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
 
 const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
 };
 
 export default function CommunityPage() {
@@ -113,11 +38,12 @@ export default function CommunityPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.0 }}
       >
+
         <Image
-          src="/images/trucks/1st area 1.22.jpg" // Using baseball field image
+          src="/images/trucks/breastCancerFullCompany.jpg"
           alt="Sharp Transportation Community Impact"
           fill
-          className="object-cover object-center brightness-50"
+          className="object-cover object-center brightness-75"
           priority
         />
         <div className="relative z-10 max-w-3xl px-4">
@@ -183,7 +109,9 @@ export default function CommunityPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {impactNumbers.map((item, i) => (
               <motion.div key={i} variants={itemVariants}>
-                <p className="text-5xl font-extrabold">{item.number}</p>
+                <p className="text-5xl font-extrabold">
+                  <CountUp to={item.number} suffix={item.suffix} />
+                </p>
                 <p className="text-lg text-blue-200 mt-2">{item.text}</p>
               </motion.div>
             ))}
@@ -273,7 +201,7 @@ export default function CommunityPage() {
           <motion.div variants={itemVariants} className="md:w-1/2">
             <h2 className="text-3xl font-bold mb-4 text-gray-800">Driven by Our People</h2>
             <blockquote className="bg-white border-l-4 border-blue-500 px-6 py-5 rounded-r-lg text-gray-700 italic text-lg">
-              "Driving the EMS truck is a huge source of pride. When people see it, they wave, they honk... you feel connected to something bigger than just the load you're hauling. It’s a reminder of what this company is all about."
+              "Driving the EMS truck is a huge source of pride. When people see it, they wave, they honk... you feel connected to something bigger than just the load you're hauling. It's a reminder of what this company is all about."
               <span className="block mt-3 text-md font-bold text-gray-800">– John D., Company Driver</span>
             </blockquote>
           </motion.div>

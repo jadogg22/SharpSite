@@ -233,14 +233,14 @@ export default function Directory() {
   const defaultTab = searchParams.get("tab") || "Recruitment";
 
   return (
-  <div className="flex min-h-screen flex-col">
-  <MyHeader />
-  
+    <div className="flex min-h-screen flex-col">
+      <MyHeader />
+
       {/* Hero Section */}
       <section className="relative">
         <div className="relative h-[300px] md:h-[400px] w-full">
           <Image
-            src="/images/trucks/hero4.avif"
+            src="/images/trucks/hero2.avif"
             alt="Sharp Transportation Logistics"
             fill
             className="object-cover"
@@ -251,7 +251,7 @@ export default function Directory() {
           </div>
         </div>
       </section>
-    <main className="flex-1 container mx-auto px-4 py-24">
+      <main className="flex-1 container mx-auto px-4 py-24">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">Sharp Staff Directory</h2>
           <div className="flex items-center justify-center mb-4">
@@ -327,8 +327,8 @@ export default function Directory() {
             ))}
           </Tabs>
         </div>
-  </main>
-  <MyFooter />
-  </div>
+      </main>
+      <MyFooter />
+    </div>
   );
 };
