@@ -11,7 +11,7 @@ import { MyFooter } from "@/components/MyFooter";
 const perkPhotos = [
   { src: "/images/drivers/driver_with_dog.jpg", alt: "A Sharp driver with their dog in the truck" },
   { src: "/images/trucks/front_w_trailer.jpg", alt: "A Sharp Transportation truck and trailer" },
-  { src: "/images/trucks/inside_cab.jpg", alt: "The modern interior of a Sharp truck cab" },
+  { src: "/images/trucks/inside_cab.JPG", alt: "The modern interior of a Sharp truck cab" },
   { src: "/images/drivers/driver_with_fam.png", alt: "A Sharp driver with their family" },
 ];
 
