@@ -16,7 +16,6 @@ export const OurEquipment = () => {
           alt="Sharp Transportation Truck"
           fill
           style={{ objectFit: 'cover' }}
-          quality={100}
           className="absolute inset-0 z-0"
         />
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay for readability */}
@@ -181,11 +180,11 @@ export const OurEquipment = () => {
               className="grid grid-cols-2 gap-4"
             >
               <motion.div variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}>
-                <Image src="/images/shop/in-house-shop-1.jpg" alt="Mechanic working on a truck engine" width={400} height={300} className="rounded-lg shadow-lg object-cover w-full h-full" />
+                <Image src="/images/shop/in-house-shop-1.JPG" alt="Mechanic working on a truck engine" width={400} height={300} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="rounded-lg shadow-lg object-cover w-full h-full" />
               </motion.div>
               <motion.div variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }} className="grid grid-rows-2 gap-4">
-                <Image src="/images/shop/6B8A16641.JPG" alt="View of the service bays" width={400} height={142} className="rounded-lg shadow-lg object-cover w-full h-full" />
-                <Image src="/images/shop/6B8A16881.JPG" alt="Tire and parts storage" width={400} height={142} className="rounded-lg shadow-lg object-cover w-full h-full" />
+                <Image src="/images/shop/6B8A16641.JPG" alt="View of the service bays" width={400} height={142} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="rounded-lg shadow-lg object-cover w-full h-full" />
+                <Image src="/images/shop/6B8A16881.JPG" alt="Tire and parts storage" width={400} height={142} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="rounded-lg shadow-lg object-cover w-full h-full" />
               </motion.div>
             </motion.div>
           </div>
