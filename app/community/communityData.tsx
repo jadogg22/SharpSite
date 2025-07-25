@@ -6,7 +6,7 @@ export const impactAreas = [
     icon: <HeartHandshake className="w-10 h-10 text-blue-500" />,
     title: "Youth & Sports",
     description: "We built an indoor baseball training facility for our local high school — because strong teams build strong communities.",
-    image: "/images/trucks/1st area 1.14.jpg",
+    image: "/images/misc/IMG_1820.JPG",
   },
   {
     icon: <Baby className="w-10 h-10 text-pink-500" />,

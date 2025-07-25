@@ -2,12 +2,6 @@ import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 
-const galleryImages = [
-  { src: "/images/trucks/1st area 1.14.jpg", alt: "Indoor baseball facility" },
-  { src: "/images/trucks/hero-truck.webp", alt: "EMS wrapped truck" },
-  { src: "/images/trucks/1st area 1.18.jpg", alt: "Community event" },
-];
-
 const sectionVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -18,7 +12,7 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export default function ImpactGallery() {
+export default function ImpactGallery({ images }: { images: { src: string; alt: string; }[] }) {
   return (
     <motion.section
       variants={sectionVariants}
@@ -31,7 +25,7 @@ export default function ImpactGallery() {
         <h2 className="text-4xl font-bold mb-10 text-center text-gray-800">Our Impact in Action</h2>
         <Carousel className="max-w-2xl mx-auto">
           <CarouselContent>
-            {galleryImages.map((img, i) => (
+            {images.map((img, i) => (
               <CarouselItem key={i}>
                 <Image
                   src={img.src}
