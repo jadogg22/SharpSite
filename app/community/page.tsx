@@ -157,7 +157,7 @@ export default function CommunityPage() {
       </motion.section>
 
       {/* Featured Gallery */}
-      <ImpactGallery />
+      <ImpactGallery images={galleryImages} />
 
       {/* Testimonials / Partners */}
       <motion.section
@@ -169,12 +169,21 @@ export default function CommunityPage() {
       >
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-8 text-gray-800">Community Voices</h2>
-          <div className="max-w-2xl mx-auto">
-            <motion.div variants={itemVariants} className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg text-left">
-              <p className="text-gray-700 italic text-lg">
-                "Sharp Transportation's contribution was a game-changer for our program. The indoor facility they built allows our student-athletes to train year-round, something we only dreamed of before. They truly invested in our kids' futures."
-              </p>
-              <p className="mt-4 font-bold text-gray-800">– High School Baseball Coach</p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="md:col-span-1">
+              <motion.div variants={itemVariants} className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg text-left">
+                <p className="text-gray-700 italic text-lg">
+                  "Sharp Transportation's contribution was a game-changer for our program. The indoor facility they built allows our student-athletes to train year-round, something we only dreamed of before. They truly invested in our kids' futures."
+                </p>
+                <p className="mt-4 font-bold text-gray-800">– High School Baseball Coach</p>
+              </motion.div>
+            </div>
+            <motion.div variants={itemVariants} className="md:col-span-1 grid grid-cols-2 gap-4">
+              <Image src="/images/misc/IMG_1820.JPG" alt="Inside of Sharp Transportation building" width={300} height={200} className="rounded-lg shadow-lg object-cover w-full h-full" />
+              <Image src="/images/misc/IMG_1821.JPG" alt="Outside of Sharp Transportation building" width={300} height={200} className="rounded-lg shadow-lg object-cover w-full h-full" />
+              <div className="col-span-2">
+                <Image src="/images/misc/kids_cropped.JPG" alt="Baseball team smiling in front of the diamond" width={600} height={300} className="rounded-lg shadow-lg object-cover w-full h-full" />
+              </div>
             </motion.div>
           </div>
         </div>
