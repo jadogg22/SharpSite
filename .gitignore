@@ -33,3 +33,5 @@ yarn-error.log*
 # === TypeScript ===
 # (you usually commit these, but if you ever generate extra tsbuild output…)
 *.tsbuildinfo
+
+video scripts/
