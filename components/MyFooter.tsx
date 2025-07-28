@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { MapPin, Phone, Instagram, Youtube, ChevronDown } from 'lucide-react';
-import React, { useState } from 'react';
 import Link from 'next/link';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useIsMobile } from '@/hooks/use-mobile';

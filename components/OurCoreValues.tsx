@@ -51,9 +51,8 @@ const OurCoreValues = () => {
         </ScrollAnimation>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {values.map((value, index) => (
-            <ScrollAnimation delay={index * 0.2}>
+            <ScrollAnimation key={index} delay={index * 0.2}>
               <div
-                key={index}
                 className={`group text-center p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 ${value.hoverColor}`}>
                 <div className="flex justify-center mb-4">{value.icon}</div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">{value.title}</h3>
