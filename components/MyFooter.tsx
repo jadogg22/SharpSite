@@ -64,8 +64,8 @@ const FooterLinkList = ({ title, links }) => (
   <div>
     <h3 className="text-lg font-medium text-white mb-4">{title}</h3>
     <ul className="space-y-2 text-sm">
-      {links.map(link => (
-        <li key={link.href}>
+      {links.map((link, index) => (
+        <li key={`${link.href}-${index}`}>
           <Link href={link.href} className="hover:text-white transition-colors" target={link.target} rel={link.target ? "noopener noreferrer" : undefined}>
             {link.label}
           </Link>
@@ -101,8 +101,8 @@ export const MyFooter = () => {
               <AccordionTrigger>For Drivers</AccordionTrigger>
               <AccordionContent>
                 <ul className="space-y-2 text-sm pl-4">
-                  {footerLinks.drivers.map(link => (
-                    <li key={link.href}>
+                  {footerLinks.drivers.map((link, index) => (
+                    <li key={`${link.href}-${index}`}>
                       <Link href={link.href} className="hover:text-white transition-colors" target={link.target} rel={link.target ? "noopener noreferrer" : undefined}>
                         {link.label}
                       </Link>
@@ -115,8 +115,8 @@ export const MyFooter = () => {
               <AccordionTrigger>For Shippers</AccordionTrigger>
               <AccordionContent>
                 <ul className="space-y-2 text-sm pl-4">
-                  {footerLinks.shippers.map(link => (
-                    <li key={link.href}>
+                  {footerLinks.shippers.map((link, index) => (
+                    <li key={`${link.href}-${index}`}>
                       <Link href={link.href} className="hover:text-white transition-colors" target={link.target} rel={link.target ? "noopener noreferrer" : undefined}>
                         {link.label}
                       </Link>
@@ -129,8 +129,8 @@ export const MyFooter = () => {
               <AccordionTrigger>Company</AccordionTrigger>
               <AccordionContent>
                 <ul className="space-y-2 text-sm pl-4">
-                  {footerLinks.company.map(link => (
-                    <li key={link.href}>
+                  {footerLinks.company.map((link, index) => (
+                    <li key={`${link.href}-${index}`}>
                       <Link href={link.href} className="hover:text-white transition-colors">
                         {link.label}
                       </Link>
