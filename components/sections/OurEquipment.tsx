@@ -1,13 +1,32 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Gauge, Wrench, Users, Award, Truck, Settings, ShieldCheck, Clock } from 'lucide-react';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const stats = [
+  { icon: Gauge, value: "99%", label: "On-Time Delivery" },
+  { icon: Wrench, value: "24/7", label: "Maintenance Support" },
+  { icon: Users, value: "350+", label: "Experienced Drivers" },
+  { icon: Award, value: "Top Rated", label: "Safety Record" },
+];
 
 export const OurEquipment = () => {
+  const [currentStat, setCurrentStat] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStat((prevStat) => (prevStat + 1) % stats.length);
+    }, 3000); // Change stat every 3 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const CurrentIcon = stats[currentStat].icon;
+
   return (
     <>
       <section className="relative w-full h-[70vh] md:h-[80vh] lg:h-[90vh] flex items-center justify-center text-white overflow-hidden">
@@ -28,39 +47,22 @@ export const OurEquipment = () => {
             transition={{ duration: 0.8 }}
             className="space-y-6"
           >
-            <Image
-              src="/images/sharp_transportation_logo.jpeg"
-              alt="Sharp Transportation Logo"
-              width={150}
-              height={45}
-              className="mx-auto mb-4 drop-shadow-lg"
-            />
+            <div className="hidden md:block">
+              <Image
+                src="/images/sharp_transportation_logo.jpeg"
+                alt="Sharp Transportation Logo"
+                width={150}
+                height={45}
+                className="mx-auto mb-4 drop-shadow-lg"
+              />
+            </div>
             <motion.h2
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl relative inline-flex items-center group"
-              variants={{
-                initial: {},
-                hover: {
-                  transition: {
-                    staggerChildren: 0.05,
-                  },
-                },
-              }}
-              initial="initial"
-              whileHover="hover"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight relative flex items-center justify-center group"
             >
-              <Truck className="h-10 w-10 mr-4 text-white group-hover:animate-bounce" />
-              {"Our Modern Fleet: Reliability on the Road".split(" ").map((word, i, arr) => (
-                <motion.span
-                  key={i}
-                  variants={{
-                    initial: { color: "#FFFFFF" }, // Use hex code for white
-                    hover: { color: "#FACC15" }, // Use hex code for yellow-400
-                  }}
-                  className="inline-block"
-                >
-                  {word}{i < arr.length - 1 ? "\u00A0" : ""}
-                </motion.span>
-              ))}
+              <Truck className="h-8 w-8 sm:h-10 sm:w-10 mr-4 text-white group-hover:animate-bounce" />
+              <span className="group-hover:text-yellow-400 transition-colors duration-300">
+                Our Modern Fleet: Reliability on the Road
+              </span>
             </motion.h2>
             <p className="max-w-3xl mx-auto text-lg md:text-xl">
               At Sharp Transportation, we pride ourselves on maintaining a fleet of late-model, well-equipped trucks. Our commitment to modern equipment ensures not only the safety and comfort of our drivers but also the reliable and efficient delivery of your cargo.
@@ -72,52 +74,43 @@ export const OurEquipment = () => {
             </Link>
           </motion.div>
 
-          {/* Stats Section */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <Gauge className="h-10 w-10 text-white" />
-              <span className="text-3xl font-bold">99%</span>
-              <p className="text-sm text-gray-300">On-Time Delivery</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <Wrench className="h-10 w-10 text-white" />
-              <span className="text-3xl font-bold">24/7</span>
-              <p className="text-sm text-gray-300">Maintenance Support</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <Users className="h-10 w-10 text-white" />
-              <span className="text-3xl font-bold">350+</span>
-              <p className="text-sm text-gray-300">Experienced Drivers</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="flex flex-col items-center space-y-2"
-            >
-              <Award className="h-10 w-10 text-white" />
-              <span className="text-3xl font-bold">Top Rated</span>
-              <p className="text-sm text-gray-300">Safety Record</p>
-            </motion.div>
+          {/* Stats Section - Desktop */}
+          <div className="mt-12 hidden md:grid grid-cols-4 gap-8 px-4 sm:px-0">
+            {stats.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.8, delay: 0.2 * (index + 1) }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <Icon className="h-10 w-10 text-white" />
+                  <span className="text-3xl font-bold">{stat.value}</span>
+                  <p className="text-sm text-gray-300">{stat.label}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Stats Section - Mobile Carousel */}
+          <div className="mt-12 md:hidden h-32 flex items-center justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentStat}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center space-y-2"
+              >
+                <CurrentIcon className="h-10 w-10 text-white" />
+                <span className="text-3xl font-bold">{stats[currentStat].value}</span>
+                <p className="text-sm text-gray-300">{stats[currentStat].label}</p>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </section>
@@ -177,7 +170,7 @@ export const OurEquipment = () => {
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
               variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-              className="grid grid-cols-2 gap-4"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
               <motion.div variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1 } }}>
                 <Image src="/images/shop/in-house-shop-1.JPG" alt="Mechanic working on a truck engine" width={400} height={300} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="rounded-lg shadow-lg object-cover w-full h-full" />
