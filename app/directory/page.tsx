@@ -1,14 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { MyHeader } from '@/components/MyHeader';
 import { MyFooter } from '@/components/MyFooter';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Phone, MapPin } from "lucide-react";
-import { Mail } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 type ContactPerson = {
   role?: string;
@@ -228,9 +229,19 @@ const contacts: ContactOffice[] = [
   },
 ];
 
-export default function Directory() {
+function DirectoryContent() {
   const searchParams = useSearchParams();
+  const isMobile = useIsMobile();
   const defaultTab = searchParams.get("tab") || "Recruitment";
+  const [activeTab, setActiveTab] = useState(defaultTab);
+
+  useEffect(() => {
+    setActiveTab(defaultTab);
+  }, [defaultTab]);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+  };
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -263,16 +274,32 @@ export default function Directory() {
           </p>
         </div>
         <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue={defaultTab} className="w-full">
-            {/* Tab headers */}
-            <TabsList className="flex flex-wrap gap-2 justify-center mb-8">
-              {contacts.map(({ value, label }) => (
-                <TabsTrigger key={value} value={value} className="min-w-[140px]">
-                  {label}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            {/* Tab content */}
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+            {isMobile ? (
+              <div className="mb-8">
+                <Select value={activeTab} onValueChange={handleTabChange}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select a department" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {contacts.map(({ value, label }) => (
+                      <SelectItem key={value} value={value}>
+                        {label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            ) : (
+              <TabsList className="flex flex-wrap gap-2 justify-center mb-8">
+                {contacts.map(({ value, label }) => (
+                  <TabsTrigger key={value} value={value} className="min-w-[140px]">
+                    {label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            )}
+            
             {contacts.map(({ value, label, contacts: group }) => (
               <TabsContent key={value} value={value}>
                 <Card>
@@ -311,7 +338,7 @@ export default function Directory() {
                             {person.email && (
                               <a
                                 href={`mailto:${person.email}`}
-                                className="flex items-center text-blue-600 hover:underline text-sm mt-1 justify-end"
+                                className="flex items-center text-blue-600 hover:underline text-sm mt-1 md:justify-end"
                               >
                                 <Mail className="w-4 h-4 mr-1" />
                                 {person.email}
@@ -331,4 +358,12 @@ export default function Directory() {
       <MyFooter />
     </div>
   );
-};
+}
+
+export default function Directory() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <DirectoryContent />
+    </React.Suspense>
+  );
+}
