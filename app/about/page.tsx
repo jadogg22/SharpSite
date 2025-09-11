@@ -8,6 +8,7 @@ import ContactUs from "@/components/ContactUs";
 import { Award, Users } from "lucide-react";
 import ScrollAnimation from "@/components/ScrollAnimation";
 import OurCoreValues from "@/components/OurCoreValues"; // Import the new component
+import { CommunityOutreach } from "@/components/CommunityOutreach";
 import ZAnimation from "@/components/ZAnimation";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -153,6 +154,8 @@ export default function AboutPage() {
           <TruckTimeline />
         </section>
       </ScrollAnimation>
+
+      <CommunityOutreach />
 
       <ScrollAnimation>
         <section className="py-20">
