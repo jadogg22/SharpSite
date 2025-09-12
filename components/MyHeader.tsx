@@ -49,7 +49,7 @@ export const MyHeader = () => (
               Track Shipment
             </Link>
           </Button>
-          <Button asChild><Link href="comm">Contact Us</Link></Button>
+          <Button asChild><Link href="/contact">Contact Us</Link></Button>
         </div>
         <div className="md:hidden">
           <Sheet>
