@@ -153,7 +153,7 @@ export default function Employment() {
                     alt={photo.alt}
                     width={240}
                     height={180}
-                                        className={`rounded-xl object-cover h-40 w-full shadow-lg transform hover:scale-105 transition-transform duration-300 ${i === 1 ? "object-bottom" : ""} ${i === 2 ? "blur-xs" : ""}`}
+                    className={`rounded-xl object-cover h-40 w-full shadow-lg transform hover:scale-105 transition-transform duration-300 ${i === 1 ? "object-bottom" : ""} ${i === 2 ? "blur-xs" : ""}`}
 
                   />
                 </motion.div>
@@ -238,7 +238,7 @@ export default function Employment() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold mb-4 text-white">Not a CDL Driver?</h2>
           <p className="mb-8 text-gray-300 max-w-2xl mx-auto text-lg">We're also hiring for our in-house shop, office, and logistics teams. Expert mechanics, dispatchers, and more—join the Sharp family.</p>
-          <Link href="/apply">
+          <Link href="/coming-soon">
             <Button size="lg" className="bg-white text-gray-800 hover:bg-primary hover:text-white text-lg px-8 py-3">
               See Open Positions
             </Button>

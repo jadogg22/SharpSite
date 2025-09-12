@@ -12,6 +12,7 @@ import { CommunityOutreach } from "@/components/CommunityOutreach";
 import ZAnimation from "@/components/ZAnimation";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import WrappedTrucks from "@/components/WrappedTrucks";
 
 export default function AboutPage() {
   const [showContent, setShowContent] = useState(false);
@@ -127,8 +128,8 @@ export default function AboutPage() {
               <p>
                 Zan often finds himself reflecting on the success of the company, especially since he's been here
                 since the beginning. <span className="italic">"Sharp Transportation has grown to become what my dad always wanted. He dreamed
-                of a trucking company run by the family, where we would work together during the week and play
-                together during weekends."</span> His dream has come true, as his wife and all three children have worked for
+                  of a trucking company run by the family, where we would work together during the week and play
+                  together during weekends."</span> His dream has come true, as his wife and all three children have worked for
                 the company.
               </p>
               <p>
@@ -155,7 +156,9 @@ export default function AboutPage() {
         </section>
       </ScrollAnimation>
 
-      <CommunityOutreach />
+      {/*<WrappedTrucks />
+      <CommunityOutreach />*/}
+
 
       <ScrollAnimation>
         <section className="py-20">
