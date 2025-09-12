@@ -44,12 +44,12 @@ export const MyHeader = () => (
       <div className="flex items-center gap-4">
         <div className="hidden md:flex">
           <Button variant="outline" size="sm" className="mr-2" asChild>
-            <Link href="/track-shipment">
+            <Link href="/coming-soon">
               <Search className="mr-2 h-4 w-4" />
               Track Shipment
             </Link>
           </Button>
-          <Button asChild><Link href="/contact">Contact Us</Link></Button>
+          <Button asChild><Link href="comm">Contact Us</Link></Button>
         </div>
         <div className="md:hidden">
           <Sheet>
